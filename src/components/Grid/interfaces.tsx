@@ -64,7 +64,11 @@ export interface ContainerProps extends BaseProps {
 	customWidth?: string;
 }
 
-export interface RowProps extends BaseProps, AlignProps, JustifyProps, ReverseProps {
+export interface RowProps
+	extends BaseProps,
+		AlignProps,
+		JustifyProps,
+		ReverseProps {
 	gap?: string;
 	nowrap?: boolean;
 	fitContent?: boolean;
