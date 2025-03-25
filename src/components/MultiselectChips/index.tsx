@@ -64,7 +64,7 @@ const MultiselectChips = ({ label, options }: MultiselectChipsProps) => {
 						}}
 					>
 						{selected.map((value) => (
-							<Chip key={value} label={value} />
+							<Chip key={value} label={value} color="primary" />
 						))}
 					</Box>
 				)}

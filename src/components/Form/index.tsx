@@ -4,12 +4,12 @@ import { Col, Row } from "../Grid";
 import {
 	Autocomplete,
 	Button,
-	FormControl,
-	FormLabel,
-	Switch,
+	Checkbox,
+	FormControlLabel,
 	TextField,
 } from "@mui/material";
 import MultiselectChips from "../MultiselectChips";
+import { CelebrationRounded } from "@mui/icons-material";
 
 const submitForm = async () => {
 	console.log("submit-form");
@@ -18,20 +18,38 @@ const submitForm = async () => {
 const ApplicationForm = () => {
 	return (
 		<Row>
-			<Col xs={12} md={2}>
-				<FormControl component="fieldset">
-					<FormLabel component="switch">Parteciperai?</FormLabel>
-					<Switch />
-				</FormControl>
-			</Col>
-			<Col xs={12} md={10}>
+			<Col xs={12}>
 				<Autocomplete
 					fullWidth
-					options={[]}
+					options={[
+						"Jacopo Panzera",
+						"Valter Panzera",
+						"Paolo DaDeppo",
+						"Francesco Fabris",
+						"Roberto DaVià",
+						"Marco Tabacchi",
+					]}
 					renderInput={(params) => (
-						<TextField {...params} label="Nome ospite" />
+						<TextField {...params} required label="Nome ospite" />
 					)}
 				/>
+			</Col>
+			<Col xs={12}>
+				<FormControlLabel
+					control={<Checkbox defaultChecked />}
+					label="Parteciperò"
+				/>
+				<FormControlLabel
+					control={<Checkbox />}
+					label="Porterò un ospite"
+				/>
+				<FormControlLabel
+					control={<Checkbox />}
+					label="Succhierò piselli"
+				/>
+			</Col>
+			<Col xs={12}>
+				<TextField label="Chi altro porterai?" fullWidth />
 			</Col>
 			<Col xs={12}>
 				<MultiselectChips
@@ -40,10 +58,16 @@ const ApplicationForm = () => {
 						"Vegetariano",
 						"Celiaco",
 						"Intolleranza lattosio",
-						"Crostacei",
-						"Frutta secca",
+						"Allergia Crostacei",
+						"Allergia Frutta secca",
 						"Altro",
 					]}
+				/>
+			</Col>
+			<Col xs={12}>
+				<TextField
+					label="Quali altre avvertenze alimenatri?"
+					fullWidth
 				/>
 			</Col>
 			<Col xs={12}>
@@ -55,9 +79,9 @@ const ApplicationForm = () => {
 					onClick={() => submitForm()}
 					variant="contained"
 					size="large"
-					// startIcon={<Home />}
+					startIcon={<CelebrationRounded />}
 				>
-					Submit
+					Invia!
 				</Button>
 			</Col>
 		</Row>
