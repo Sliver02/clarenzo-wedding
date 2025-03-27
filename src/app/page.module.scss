@@ -1,15 +1,66 @@
 @import "@/designSystem/variables";
 @import "@/designSystem/mediaQueries";
 
-.letterBody {
+.pageContainer {
+	// height: 200vh;
+}
+
+.pageBody {
 	--max-width: 1000px;
 
 	max-width: var(--max-width);
 	background-color: var(--primary-background);
 
 	margin: 3rem auto;
+	margin-top: 90vh;
 
 	.section {
 		padding: 3rem 0;
 	}
+}
+
+.letterUp {
+	--max-width: 1040px;
+
+	position: fixed;
+
+	top: 50%;
+	left: 50%;
+
+	width: 100%;
+	height: 500px;
+	max-width: var(--max-width);
+
+	background-color: var(--accent-hover);
+	z-index: 12;
+}
+
+.letterDown {
+	--max-width: 1040px;
+
+	position: fixed;
+
+	bottom: 50%;
+	left: 50%;
+
+	width: 100%;
+	height: 400px;
+	max-width: var(--max-width);
+
+	background-color: var(--accent-background);
+	z-index: 10;
+}
+
+.cover {
+	position: fixed;
+
+	top: 60%;
+	left: 0;
+
+	width: 100%;
+	height: 100vh;
+
+	color: white;
+	background-color: var(--neutral-background);
+	z-index: 8;
 }
