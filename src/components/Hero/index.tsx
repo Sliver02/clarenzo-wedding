@@ -18,10 +18,10 @@ const Hero = ({ className }: BaseProps) => {
 	const characterY = useTransform(scrollYProgress, [0, 1], [800, 0]);
 	const leafY = useTransform(scrollYProgress, [0, 1], [500, -10]);
 
-	const leafleftX = useTransform(scrollYProgress, [0, 1], [20, -55]);
+	const leafLeftX = useTransform(scrollYProgress, [0, 1], [100, -55]);
 	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [10, -5]);
 
-	const leafRightX = useTransform(scrollYProgress, [0, 1], [-20, 55]);
+	const leafRightX = useTransform(scrollYProgress, [0, 1], [-100, 55]);
 	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-10, 5]);
 
 	return (
@@ -29,7 +29,7 @@ const Hero = ({ className }: BaseProps) => {
 			<div ref={ref} className={classNames(styles.leafContainer)}>
 				<motion.div
 					className={classNames(styles.leafLeft)}
-					style={{ y: leafY, x: leafleftX, rotateZ: leafleftRotate }}
+					style={{ y: leafY, x: leafLeftX, rotateZ: leafleftRotate }}
 				>
 					leaf
 				</motion.div>

@@ -13,11 +13,12 @@
 	max-width: var(--max-width);
 	background-color: var(--primary-background);
 
-	margin: 3rem auto;
+	margin: 0 auto;
 	margin-top: 80vh;
+	margin-bottom: 20rem;
 
 	.section {
-		padding: 3rem 0;
+		padding-bottom: 3rem;
 	}
 }
 

@@ -25,7 +25,7 @@ export default function Home() {
 	});
 
 	// Move the divs in opposite directions based on scroll progress
-	const letterUpY = useTransform(scrollYProgress, [0, 1], [0, -800]);
+	const letterUpY = useTransform(scrollYProgress, [0, 1], [0, -1000]);
 	const letterDownY = useTransform(scrollYProgress, [0, 1], [0, 800]);
 
 	return (
@@ -66,7 +66,9 @@ export default function Home() {
 					</motion.div>
 
 					<div className={classNames(styles.pageBody)}>
-						<Hero />
+						<section className={classNames(styles.section)}>
+							<Hero />
+						</section>
 						<section className={classNames(styles.section)}>
 							<Info />
 						</section>

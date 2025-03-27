@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import MultiselectChips from "../MultiselectChips";
 import { CelebrationRounded } from "@mui/icons-material";
+import classNames from "classnames";
 
 const submitForm = async () => {
 	console.log("submit-form");
@@ -18,6 +19,21 @@ const submitForm = async () => {
 const ApplicationForm = () => {
 	return (
 		<Container>
+			<Row>
+				<Col xs={12}>
+					<h3 className={classNames("text--h-md")}>
+						Siamo lieti di invitarti
+					</h3>
+					<p className={classNames("text--p-md")}>
+						Lorem ipsum dolor, sit amet consectetur adipisicing
+						elit. Incidunt fugiat natus tempore rem mollitia itaque
+						pariatur optio quasi ut, neque blanditiis molestiae
+						perferendis saepe officiis eligendi, cumque dolore
+						maxime, quidem fugit atque sunt iure. Animi pariatur
+						nesciunt consequatur dolores esse.
+					</p>
+				</Col>
+			</Row>
 			<Row>
 				<Col xs={12}>
 					<Autocomplete
