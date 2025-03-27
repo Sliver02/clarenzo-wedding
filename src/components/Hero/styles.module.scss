@@ -1,17 +1,28 @@
+@import "@/designSystem/variables";
+@import "@/designSystem/mediaQueries";
+
 .hero {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 80vh;
+	height: 100vh;
 	max-height: 1150px;
 
 	background-color: var(--primary-hover);
 
+	@include media-query("lg") {
+		height: 80vh;
+	}
+
 	.textWrapper {
 		width: 100%;
 		display: flex;
-		transform: translate(0, 10rem);
+		transform: translate(0, 15rem);
+
+		@include media-query("lg") {
+			transform: translate(0, 20rem);
+		}
 	}
 
 	.leafContainer {
@@ -29,17 +40,26 @@
 		}
 
 		.leafRight {
-			right: 0;
+			right: -50%;
+
+			@include media-query("lg") {
+				right: 0;
+			}
 		}
 
 		.leafLeft {
-			left: 0;
+			left: -50%;
+
+			@include media-query("lg") {
+				left: 0;
+			}
 		}
 
 		.characters {
 			position: absolute;
 			height: 80%;
-			width: 600px;
+			width: 80%;
+			max-width: 600px;
 
 			bottom: 0;
 			left: 50%;

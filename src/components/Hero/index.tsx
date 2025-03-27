@@ -6,12 +6,7 @@ import styles from "./styles.module.scss";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
-export interface HeroProps extends BaseProps {
-	title: string;
-	subtitle: string;
-}
-
-const Hero = ({ className, title, subtitle }: HeroProps) => {
+const Hero = ({ className }: BaseProps) => {
 	const ref = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -23,11 +18,11 @@ const Hero = ({ className, title, subtitle }: HeroProps) => {
 	const characterY = useTransform(scrollYProgress, [0, 1], [800, 0]);
 	const leafY = useTransform(scrollYProgress, [0, 1], [500, -10]);
 
-	const leafleftX = useTransform(scrollYProgress, [0, 1], [200, -55]);
-	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [20, -5]);
+	const leafleftX = useTransform(scrollYProgress, [0, 1], [20, -55]);
+	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [10, -5]);
 
-	const leafRightX = useTransform(scrollYProgress, [0, 1], [-200, 55]);
-	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-20, 5]);
+	const leafRightX = useTransform(scrollYProgress, [0, 1], [-20, 55]);
+	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-10, 5]);
 
 	return (
 		<div className={classNames(className, styles.hero)}>
@@ -66,7 +61,7 @@ const Hero = ({ className, title, subtitle }: HeroProps) => {
 					<Row xsJustify={Justify.center}>
 						<Col xs={12} lg={8}>
 							<h1 className={classNames("text--h-md")}>
-								{title}
+								Invito Matrimonio
 							</h1>
 							<p
 								className={classNames(
@@ -75,7 +70,7 @@ const Hero = ({ className, title, subtitle }: HeroProps) => {
 									"text--italic"
 								)}
 							>
-								{subtitle}
+								di Clara e Lorenzo
 							</p>
 						</Col>
 					</Row>

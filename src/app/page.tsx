@@ -1,13 +1,14 @@
 "use client";
 
-import ApplicationForm from "@/components/Form";
-import { Col, Container, Row } from "@/components/Grid";
+import ApplicationForm from "@/components/ApplicationForm";
 import { ThemeProvider } from "@emotion/react";
 import { createTheme } from "@mui/material";
 import classNames from "classnames";
 import styles from "./page.module.scss";
 import Hero from "@/components/Hero";
 import { motion, useScroll, useTransform } from "motion/react";
+import Info from "@/components/Info";
+import { useRef } from "react";
 
 export default function Home() {
 	const theme = createTheme({
@@ -16,16 +17,23 @@ export default function Home() {
 		},
 	});
 
-	const { scrollYProgress } = useScroll(); // Track scroll progress (0 to 1)
+	const ref = useRef(null);
+
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start start", "end end"],
+	});
 
 	// Move the divs in opposite directions based on scroll progress
-	const letterUpY = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+	const letterUpY = useTransform(scrollYProgress, [0, 1], [0, -800]);
 	const letterDownY = useTransform(scrollYProgress, [0, 1], [0, 800]);
 
 	return (
 		<>
 			<ThemeProvider theme={theme}>
 				<div className={classNames(styles.pageContainer)}>
+					<div ref={ref} className={classNames(styles.letterRef)} />
+
 					<motion.div
 						className={classNames(styles.letterUp)}
 						style={{
@@ -57,21 +65,15 @@ export default function Home() {
 						cover
 					</motion.div>
 
-					<motion.div className={classNames(styles.pageBody)}>
-						<Hero
-							title="Siete cordialmente invitati al Matrimonio"
-							subtitle="di Clara e Lorenzo"
-						/>
+					<div className={classNames(styles.pageBody)}>
+						<Hero />
 						<section className={classNames(styles.section)}>
-							<Container>
-								<Row>
-									<Col>
-										<ApplicationForm />
-									</Col>
-								</Row>
-							</Container>
+							<Info />
 						</section>
-					</motion.div>
+						<section className={classNames(styles.section)}>
+							<ApplicationForm />
+						</section>
+					</div>
 				</div>
 			</ThemeProvider>
 		</>
