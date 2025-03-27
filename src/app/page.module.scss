@@ -3,6 +3,8 @@
 
 .pageContainer {
 	// height: 200vh;
+	overflow: hidden;
+	width: 100vw;
 }
 
 .pageBody {
@@ -19,33 +21,29 @@
 	}
 }
 
-.letterUp {
+.letterUp,
+.letterDown {
 	--max-width: 1040px;
 
 	position: fixed;
-
-	top: 50%;
 	left: 50%;
 
-	width: 100%;
+	width: var(--max-width);
+}
+
+.letterUp {
+	top: 50%;
+
 	height: 500px;
-	max-width: var(--max-width);
 
 	background-color: var(--accent-hover);
 	z-index: 12;
 }
 
 .letterDown {
-	--max-width: 1040px;
-
-	position: fixed;
-
 	bottom: 50%;
-	left: 50%;
 
-	width: 100%;
 	height: 400px;
-	max-width: var(--max-width);
 
 	background-color: var(--accent-background);
 	z-index: 10;
