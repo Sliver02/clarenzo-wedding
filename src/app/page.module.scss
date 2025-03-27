@@ -1,0 +1,15 @@
+@import "@/designSystem/variables";
+@import "@/designSystem/mediaQueries";
+
+.letterBody {
+	--max-width: 1000px;
+
+	max-width: var(--max-width);
+	background-color: var(--primary-background);
+
+	margin: 3rem auto;
+
+	.section {
+		padding: 3rem 0;
+	}
+}
