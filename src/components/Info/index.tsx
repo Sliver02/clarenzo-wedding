@@ -7,11 +7,8 @@ import {
 } from "@vis.gl/react-google-maps";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
-import { useRouter } from "next/compat/router";
 
 const Info = () => {
-	const router = useRouter();
-
 	const position: { lat: number; lng: number } = {
 		lat: 45.66673,
 		lng: 12.2416,
@@ -55,8 +52,13 @@ const Info = () => {
 				<Col xs={12} lg={6}>
 					<h3 className={classNames("text--h-md")}>Dove?</h3>
 					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Facere quibusdam fugiat sunt cumque, veniam eligendi!
+						Festeggieremo nella incatata corine del{" "}
+						<strong>Castello Papadopoli</strong>, vicino a Treviso.
+						Un vero luogo incantato per una giornata magica!
+						<br />
+						<br />
+						<strong>Piazza Papadopoli, 2</strong>
+						<br /> 31020 <strong>San Polo di Piave</strong> TV
 					</p>
 				</Col>
 
