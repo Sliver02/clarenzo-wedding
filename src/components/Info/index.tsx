@@ -1,7 +1,22 @@
 import { Col, Container, Row } from "@/components/Grid";
+import {
+	AdvancedMarker,
+	APIProvider,
+	Map,
+	Pin,
+} from "@vis.gl/react-google-maps";
 import classNames from "classnames";
+import styles from "./styles.module.scss";
+import { useRouter } from "next/compat/router";
 
 const Info = () => {
+	const router = useRouter();
+
+	const position: { lat: number; lng: number } = {
+		lat: 45.66673,
+		lng: 12.2416,
+	};
+
 	return (
 		<Container>
 			<Row>
@@ -46,15 +61,37 @@ const Info = () => {
 				</Col>
 
 				<Col xs={12} lg={6}>
-					<div
-						style={{
-							background: "gray",
-							width: "100%",
-							height: "300px",
-						}}
+					<APIProvider
+						apiKey={
+							process.env
+								.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string
+						}
 					>
-						mappa google
-					</div>
+						<div className={classNames(styles.mapContainer)}>
+							<Map
+								mapId={process.env.NEXT_PUBLIC_MAP_ID}
+								defaultZoom={9}
+								defaultCenter={position}
+								disableDefaultUI
+								fullscreenControl
+							>
+								<AdvancedMarker
+									position={{
+										lat: 45.79137936604671,
+										lng: 12.39342036929163,
+									}}
+									onClick={() =>
+										window.open(
+											process.env
+												.NEXT_PUBLIC_GOOGLE_MAPS_CASTLE as string
+										)
+									}
+								>
+									<Pin />
+								</AdvancedMarker>
+							</Map>
+						</div>
+					</APIProvider>
 				</Col>
 			</Row>
 
