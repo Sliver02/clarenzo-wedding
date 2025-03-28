@@ -52,7 +52,9 @@ const Info = () => {
 							width: "100%",
 							height: "300px",
 						}}
-					></div>
+					>
+						mappa google
+					</div>
 				</Col>
 			</Row>
 
@@ -77,7 +79,9 @@ const Info = () => {
 							width: "100%",
 							height: "300px",
 						}}
-					></div>
+					>
+						foto location in autunno
+					</div>
 				</Col>
 			</Row>
 			<div
@@ -86,7 +90,7 @@ const Info = () => {
 				}}
 			/>
 			<Row>
-				<Col xs={8}>
+				<Col xs={12} lg={8}>
 					<h3 className={classNames("text--h-md")}>Programma</h3>
 					<p className={classNames("text--p-md")}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -99,24 +103,24 @@ const Info = () => {
 					/>
 					<ul>
 						<li>
-							attivitá 1, 9:00 - Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Recusandae quaerat
-							porro veritatis?
+							<strong>attivitá 1, 9:00</strong> - Lorem ipsum
+							dolor sit amet consectetur adipisicing elit.
+							Recusandae quaerat porro veritatis?
 						</li>
 						<li>
-							attivitá 2, 9:00 - Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Recusandae quaerat
-							porro veritatis?
+							<strong>attivitá 2, 9:00</strong> - Lorem ipsum
+							dolor sit amet consectetur adipisicing elit.
+							Recusandae quaerat porro veritatis?
 						</li>
 						<li>
-							attivitá 3, 9:00 - Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Recusandae quaerat
-							porro veritatis?
+							<strong>attivitá 3, 9:00</strong> - Lorem ipsum
+							dolor sit amet consectetur adipisicing elit.
+							Recusandae quaerat porro veritatis?
 						</li>
 						<li>
-							attivitá 4, 9:00 - Lorem ipsum dolor sit amet
-							consectetur adipisicing elit. Recusandae quaerat
-							porro veritatis?
+							<strong>attivitá 4, 9:00</strong> - Lorem ipsum
+							dolor sit amet consectetur adipisicing elit.
+							Recusandae quaerat porro veritatis?
 						</li>
 					</ul>
 				</Col>
