@@ -22,15 +22,12 @@ const ApplicationForm = () => {
 			<Row>
 				<Col xs={12}>
 					<h3 className={classNames("text--h-md")}>
-						Siamo lieti di invitarti
+						Facci sapere se ci sarai!
 					</h3>
 					<p className={classNames("text--p-md")}>
 						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit. Incidunt fugiat natus tempore rem mollitia itaque
-						pariatur optio quasi ut, neque blanditiis molestiae
-						perferendis saepe officiis eligendi, cumque dolore
-						maxime, quidem fugit atque sunt iure. Animi pariatur
-						nesciunt consequatur dolores esse.
+						elit. Veritatis dolorem debitis voluptatum autem vero
+						sapiente harum dignissimos molestias facere eaque.
 					</p>
 				</Col>
 			</Row>

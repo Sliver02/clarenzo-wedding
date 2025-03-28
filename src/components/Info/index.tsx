@@ -85,6 +85,42 @@ const Info = () => {
 					marginTop: "5rem",
 				}}
 			/>
+			<Row>
+				<Col xs={8}>
+					<h3 className={classNames("text--h-md")}>Programma</h3>
+					<p className={classNames("text--p-md")}>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Facere quibusdam fugiat sunt cumque, veniam eligendi!
+					</p>
+					<div
+						style={{
+							marginTop: "2rem",
+						}}
+					/>
+					<ul>
+						<li>
+							attivitá 1, 9:00 - Lorem ipsum dolor sit amet
+							consectetur adipisicing elit. Recusandae quaerat
+							porro veritatis?
+						</li>
+						<li>
+							attivitá 2, 9:00 - Lorem ipsum dolor sit amet
+							consectetur adipisicing elit. Recusandae quaerat
+							porro veritatis?
+						</li>
+						<li>
+							attivitá 3, 9:00 - Lorem ipsum dolor sit amet
+							consectetur adipisicing elit. Recusandae quaerat
+							porro veritatis?
+						</li>
+						<li>
+							attivitá 4, 9:00 - Lorem ipsum dolor sit amet
+							consectetur adipisicing elit. Recusandae quaerat
+							porro veritatis?
+						</li>
+					</ul>
+				</Col>
+			</Row>
 		</Container>
 	);
 };
