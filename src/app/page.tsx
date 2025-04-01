@@ -9,6 +9,7 @@ import Hero from "@/components/Hero";
 import { motion, useScroll, useTransform } from "motion/react";
 import Info from "@/components/Info";
 import { useRef } from "react";
+import Image from "next/image";
 
 export default function Home() {
 	const theme = createTheme({
@@ -39,10 +40,15 @@ export default function Home() {
 						style={{
 							y: letterUpY,
 							translateX: "-50%",
-							translateY: "-80%",
+							translateY: "-70%",
 						}}
 					>
-						letter up
+						<Image
+							alt="letterup"
+							width={1040}
+							height={500}
+							src={"./letterup.svg"}
+						/>
 					</motion.div>
 
 					<motion.div
@@ -50,10 +56,15 @@ export default function Home() {
 						style={{
 							y: letterDownY,
 							translateX: "-50%",
-							translateY: "100%",
+							translateY: "50%",
 						}}
 					>
-						letter down
+						<Image
+							alt="letterdown"
+							width={1040}
+							height={600}
+							src={"./letterdown.svg"}
+						/>
 					</motion.div>
 
 					<motion.div
