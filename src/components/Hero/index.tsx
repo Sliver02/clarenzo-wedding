@@ -11,18 +11,18 @@ const Hero = ({ className }: BaseProps) => {
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ["start end", "end end"],
+		offset: ["start end", "center center"],
 	}); // Track scroll progress (0 to 1)
 
 	// Move the divs in opposite directions based on scroll progress
 	const characterY = useTransform(scrollYProgress, [0, 1], [800, 0]);
 	const leafY = useTransform(scrollYProgress, [0, 1], [500, -10]);
 
-	const leafLeftX = useTransform(scrollYProgress, [0, 1], [100, -55]);
-	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [10, -5]);
+	const leafLeftX = useTransform(scrollYProgress, [0, 1], [20, -55]);
+	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [5, -5]);
 
-	const leafRightX = useTransform(scrollYProgress, [0, 1], [-100, 55]);
-	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-10, 5]);
+	const leafRightX = useTransform(scrollYProgress, [0, 1], [-20, 55]);
+	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
 	return (
 		<div className={classNames(className, styles.hero)}>
