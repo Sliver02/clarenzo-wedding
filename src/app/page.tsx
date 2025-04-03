@@ -72,9 +72,7 @@ export default function Home() {
 						style={{
 							y: letterDownY,
 						}}
-					>
-						cover
-					</motion.div>
+					/>
 
 					<div className={classNames(styles.pageBody)}>
 						<section className={classNames(styles.section)}>
