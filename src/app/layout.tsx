@@ -1,6 +1,6 @@
 import "@/designSystem/globals.scss";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cedarville_Cursive, Geist, Geist_Mono } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 const geistSans = Geist({
@@ -11,6 +11,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
 	subsets: ["latin"],
+});
+
+const cedarville = Cedarville_Cursive({
+	variable: "--font-edarville-cursive",
+	subsets: ["latin"],
+	weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -31,7 +37,9 @@ export default function RootLayout({
 					href="https://fonts.googleapis.com/icon?family=Material+Icons"
 				/>
 			</head>
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} ${cedarville.variable}`}
+			>
 				<AppRouterCacheProvider>{children}</AppRouterCacheProvider>
 			</body>
 		</html>

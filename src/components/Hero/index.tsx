@@ -1,11 +1,10 @@
 import { BaseProps } from "@/common/globalInterfaces";
-import { Col, Container, Row } from "@/components/Grid";
-import { Justify } from "@/components/Grid/interfaces";
+import { Container } from "@/components/Grid";
 import classNames from "classnames";
-import styles from "./styles.module.scss";
 import { motion, useScroll, useTransform } from "motion/react";
-import { CSSProperties, useRef } from "react";
 import Image from "next/image";
+import { CSSProperties, useRef } from "react";
+import styles from "./styles.module.scss";
 
 const Hero = ({ className }: BaseProps) => {
 	const ref = useRef(null);
@@ -94,22 +93,16 @@ const Hero = ({ className }: BaseProps) => {
 				className={classNames(styles.textWrapper, "text--align-center")}
 			>
 				<Container>
-					<Row xsJustify={Justify.center}>
-						<Col xs={12} lg={8}>
-							<h1 className={classNames("text--h-md")}>
-								Invito Matrimonio
-							</h1>
-							<p
-								className={classNames(
-									"text--strong",
-									"text--p-xl",
-									"text--italic"
-								)}
-							>
-								di Clara e Lorenzo
-							</p>
-						</Col>
-					</Row>
+					<h1>Invito Matrimonio</h1>
+					<p
+						className={classNames(
+							"text--strong",
+							"text--p-xl",
+							"text--italic"
+						)}
+					>
+						di Clara e Lorenzo
+					</p>
 				</Container>
 			</div>
 		</div>
