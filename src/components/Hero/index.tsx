@@ -4,7 +4,8 @@ import { Justify } from "@/components/Grid/interfaces";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { CSSProperties, useRef } from "react";
+import Image from "next/image";
 
 const Hero = ({ className }: BaseProps) => {
 	const ref = useRef(null);
@@ -24,14 +25,37 @@ const Hero = ({ className }: BaseProps) => {
 	const leafRightX = useTransform(scrollYProgress, [0, 1], [-20, 55]);
 	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
+	const asd: CSSProperties = {
+		width: "auto",
+		height: "100%",
+		left: "50%",
+		transform: "translate(-50%,0)",
+		position: "absolute",
+	};
+
 	return (
 		<div className={classNames(className, styles.hero)}>
 			<div ref={ref} className={classNames(styles.leafContainer)}>
+				<Image
+					alt="wedds"
+					width={0}
+					height={0}
+					sizes="100vw"
+					style={asd}
+					src={"./background.svg"}
+				/>
+
 				<motion.div
 					className={classNames(styles.leafLeft)}
 					style={{ y: leafY, x: leafLeftX, rotateZ: leafleftRotate }}
 				>
-					leaf
+					<Image
+						alt="leaftleft"
+						style={asd}
+						width={400}
+						height={800}
+						src={"./leaf_left.svg"}
+					/>
 				</motion.div>
 				<motion.div
 					className={classNames(styles.leafRight)}
@@ -41,7 +65,13 @@ const Hero = ({ className }: BaseProps) => {
 						rotateZ: leafRightRotate,
 					}}
 				>
-					leaf
+					<Image
+						alt="leaftright"
+						style={asd}
+						width={400}
+						height={800}
+						src={"./leaf_right.svg"}
+					/>
 				</motion.div>
 
 				<motion.div
@@ -51,7 +81,13 @@ const Hero = ({ className }: BaseProps) => {
 						translateX: "-50%",
 					}}
 				>
-					characters
+					<Image
+						alt="wedds"
+						style={asd}
+						width={600}
+						height={900}
+						src={"./wedds.svg"}
+					/>
 				</motion.div>
 			</div>
 			<div

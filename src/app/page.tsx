@@ -27,7 +27,7 @@ export default function Home() {
 
 	// Move the divs in opposite directions based on scroll progress
 	const letterUpY = useTransform(scrollYProgress, [0, 1], [0, -1000]);
-	const letterDownY = useTransform(scrollYProgress, [0, 1], [0, 800]);
+	const letterDownY = useTransform(scrollYProgress, [0, 1], [0, 1000]);
 
 	return (
 		<>

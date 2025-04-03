@@ -6,13 +6,14 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 100vh;
-	max-height: 1150px;
+	height: 700px;
+	// max-height: 1150px;
+	// overflow: hidden;
 
-	background-color: var(--primary-hover);
+	// background-color: var(--primary-hover);
 
 	@include media-query("lg") {
-		height: 80vh;
+		height: 1040px;
 	}
 
 	.textWrapper {
@@ -30,13 +31,18 @@
 		width: 100%;
 		height: 100%;
 
+		.iamge {
+			width: 100%;
+			height: 100%;
+		}
+
 		.leafRight,
 		.leafLeft {
 			position: absolute;
 			bottom: 0;
 			height: 70%;
 			width: 400px;
-			background-color: var(--accent-active);
+			// background-color: var(--accent-active);
 		}
 
 		.leafRight {
@@ -63,7 +69,7 @@
 
 			bottom: 0;
 			left: 50%;
-			background-color: var(--accent-hover);
+			// background-color: var(--accent-hover);
 		}
 	}
 }
