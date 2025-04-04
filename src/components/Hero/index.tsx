@@ -15,14 +15,14 @@ const Hero = ({ className }: BaseProps) => {
 	}); // Track scroll progress (0 to 1)
 
 	// Move the divs in opposite directions based on scroll progress
-	const characterY = useTransform(scrollYProgress, [0, 1], [800, 0]);
+	const characterY = useTransform(scrollYProgress, [0, 1], [1000, 60]);
 	const leafY = useTransform(scrollYProgress, [0, 1], [500, -10]);
 
-	const leafLeftX = useTransform(scrollYProgress, [0, 1], [20, -55]);
-	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [5, -5]);
+	const leafLeftX = useTransform(scrollYProgress, [0, 1], [100, -80]);
+	const leafleftRotate = useTransform(scrollYProgress, [0, 1], [20, -5]);
 
-	const leafRightX = useTransform(scrollYProgress, [0, 1], [-20, 55]);
-	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
+	const leafRightX = useTransform(scrollYProgress, [0, 1], [-100, 80]);
+	const leafRightRotate = useTransform(scrollYProgress, [0, 1], [-20, 5]);
 
 	const asd: CSSProperties = {
 		width: "auto",
