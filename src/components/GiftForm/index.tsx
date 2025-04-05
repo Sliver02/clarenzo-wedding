@@ -9,6 +9,10 @@ import { useState } from "react";
 const GiftForm = () => {
 	const [giftValue, setGiftValue] = useState(0);
 
+	const submitForm = async () => {
+		console.log("submit-form");
+	};
+
 	return (
 		<Container>
 			<form className={classNames(styles.giftForm)}>
@@ -36,7 +40,7 @@ const GiftForm = () => {
 					</Col>
 
 					<Col xs={12} lg={6}>
-						<div className={classNames(styles.imageContainer)}>
+						<div className={classNames("imageContainer")}>
 							<Image
 								alt="castello"
 								src={"/castello.jpg"}
@@ -48,6 +52,20 @@ const GiftForm = () => {
 								}}
 							/>
 						</div>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={12}>
+						<p className={classNames("text--strong")}>
+							Coordinate Bancarie:
+						</p>
+						<p>
+							<strong>Iban:</strong> 123456IT
+							<br />
+							<strong>Intestatario:</strong> Lorenzo Panzera
+							<br />
+							<strong>Causale:</strong> regalo matrimonio
+						</p>
 					</Col>
 				</Row>
 				<Row>
@@ -160,7 +178,7 @@ const GiftForm = () => {
 							type="submit"
 							variant="contained"
 							startIcon={<FavoriteRounded />}
-							// onClick={() => submitForm()}
+							onClick={() => submitForm()}
 						>
 							Invia!
 						</Button>

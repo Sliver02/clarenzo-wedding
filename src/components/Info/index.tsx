@@ -113,13 +113,13 @@ const Info = () => {
 				</Col>
 
 				<Col xs={12} lg={6}>
-					<div className={classNames(styles.imageContainer)}>
+					<div className={classNames("imageContainer")}>
 						<Image
 							alt="castello"
 							src={"/castello.jpg"}
-							layout="responsive"
 							width={1200}
 							height={800}
+							layout="responsive"
 							style={{
 								minHeight: "100%",
 							}}

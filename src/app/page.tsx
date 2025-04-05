@@ -11,6 +11,7 @@ import Info from "@/components/Info";
 import { useRef } from "react";
 import Image from "next/image";
 import GiftForm from "@/components/GiftForm";
+import Presentations from "@/components/Presentations";
 
 export default function Home() {
 	const theme = createTheme({
@@ -90,15 +91,10 @@ export default function Home() {
 							<ApplicationForm />
 						</section>
 						<section className={classNames(styles.section)}>
+							<Presentations />
+						</section>
+						<section className={classNames(styles.section)}>
 							<GiftForm />
-							REGALO <br />
-							presentazione regalo + foto location <br />
-							Form <br />
-							il tuo regalo (somma in numero) <br />
-							Regalato da <br />
-							Messaggio <br />
-							email <br />
-							Coordinate bancarie <br />
 						</section>
 						<section className={classNames(styles.section)}>
 							FOTO/VIDEO OSPITI
