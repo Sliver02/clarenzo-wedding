@@ -10,6 +10,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import Info from "@/components/Info";
 import { useRef } from "react";
 import Image from "next/image";
+import GiftForm from "@/components/GiftForm";
 
 export default function Home() {
 	const theme = createTheme({
@@ -89,6 +90,7 @@ export default function Home() {
 							<ApplicationForm />
 						</section>
 						<section className={classNames(styles.section)}>
+							<GiftForm />
 							REGALO <br />
 							presentazione regalo + foto location <br />
 							Form <br />

@@ -1,0 +1,33 @@
+@import "@/designSystem/variables";
+@import "@/designSystem/mediaQueries";
+
+.giftForm {
+	background-color: var(--primary-background);
+	background-color: color-mix(
+		in srgb,
+		var(--primary-active) 20%,
+		transparent
+	);
+	padding: 2rem;
+	border-radius: 1rem;
+}
+
+.giftContainer {
+	display: flex;
+	flex-direction: column;
+
+	@include media-query("lg") {
+		flex-direction: row;
+	}
+
+	.buttonContainer {
+		display: flex;
+		margin-top: 1rem;
+		width: 100%;
+
+		@include media-query("lg") {
+			margin-top: 0;
+			margin-left: 1rem;
+		}
+	}
+}
