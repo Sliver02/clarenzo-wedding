@@ -1,14 +1,14 @@
 // import styles from "./index.module.scss";
-import { CelebrationRounded, Check, Close } from "@mui/icons-material";
+import { CelebrationRounded } from "@mui/icons-material";
 import {
 	Button,
+	Checkbox,
+	FormControlLabel,
 	SelectChangeEvent,
 	TextField,
-	ToggleButton,
-	ToggleButtonGroup,
 } from "@mui/material";
 import classNames from "classnames";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 
@@ -26,17 +26,11 @@ const ApplicationForm = () => {
 		console.log("submit-form");
 	};
 
-	const handlePartecipating = (
-		e: MouseEvent<HTMLElement>,
-		response: ResponseEnum
-	) => {
+	const handlePartecipating = (response: ResponseEnum) => {
 		setIsPartecipating(response);
 	};
 
-	const handlePlusOne = (
-		e: MouseEvent<HTMLElement>,
-		response: ResponseEnum
-	) => {
+	const handlePlusOne = (response: ResponseEnum) => {
 		setPlusOne(response);
 	};
 
@@ -68,7 +62,40 @@ const ApplicationForm = () => {
 				</Col>
 				<Col xs={12}>
 					<div>
-						<ToggleButtonGroup
+						<p className={classNames("text--strong")}>
+							Parteciperai?
+						</p>
+						<div>
+							<FormControlLabel
+								control={
+									<Checkbox
+										onChange={() =>
+											handlePartecipating(
+												ResponseEnum.YES
+											)
+										}
+										checked={
+											isPartecipating == ResponseEnum.YES
+										}
+									/>
+								}
+								label="Si"
+							/>
+							<FormControlLabel
+								control={
+									<Checkbox
+										onChange={() =>
+											handlePartecipating(ResponseEnum.NO)
+										}
+										checked={
+											isPartecipating == ResponseEnum.NO
+										}
+									/>
+								}
+								label="No"
+							/>
+						</div>
+						{/* <ToggleButtonGroup
 							value={isPartecipating}
 							onChange={handlePartecipating}
 							color="primary"
@@ -83,7 +110,7 @@ const ApplicationForm = () => {
 								<Close />
 								No
 							</ToggleButton>
-						</ToggleButtonGroup>
+						</ToggleButtonGroup> */}
 					</div>
 				</Col>
 				<Col xs={12}>
@@ -98,22 +125,30 @@ const ApplicationForm = () => {
 								Porterai un accompagnatore?
 							</p>
 							<div style={{ marginTop: "0.5rem" }}>
-								<ToggleButtonGroup
-									value={plusOne}
-									onChange={handlePlusOne}
-									color="primary"
-									size="small"
-									exclusive
-								>
-									<ToggleButton value={ResponseEnum.YES}>
-										<Check />
-										Sì
-									</ToggleButton>
-									<ToggleButton value={ResponseEnum.NO}>
-										<Close />
-										No
-									</ToggleButton>
-								</ToggleButtonGroup>
+								<FormControlLabel
+									control={
+										<Checkbox
+											onChange={() =>
+												handlePlusOne(ResponseEnum.YES)
+											}
+											checked={
+												plusOne == ResponseEnum.YES
+											}
+										/>
+									}
+									label="Si"
+								/>
+								<FormControlLabel
+									control={
+										<Checkbox
+											onChange={() =>
+												handlePlusOne(ResponseEnum.NO)
+											}
+											checked={plusOne == ResponseEnum.NO}
+										/>
+									}
+									label="No"
+								/>
 							</div>
 						</Col>
 						{plusOne == ResponseEnum.YES && (

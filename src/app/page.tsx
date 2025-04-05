@@ -12,9 +12,20 @@ import { useRef } from "react";
 import Image from "next/image";
 
 export default function Home() {
+	const cssVar = (name: string) =>
+		getComputedStyle(document.documentElement)
+			.getPropertyValue(name)
+			.trim();
+
+	console.log(cssVar("--primary-main"));
+
 	const theme = createTheme({
 		palette: {
 			mode: "light",
+			primary: {
+				main: "#85a371",
+				contrastText: "#343d2d",
+			},
 		},
 	});
 
