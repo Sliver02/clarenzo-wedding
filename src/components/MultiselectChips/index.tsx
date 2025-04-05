@@ -13,9 +13,14 @@ import { useState } from "react";
 export interface MultiselectChipsProps {
 	label?: string;
 	options: string[];
+	onChange?: (event: SelectChangeEvent<string[]>) => void;
 }
 
-const MultiselectChips = ({ label, options }: MultiselectChipsProps) => {
+const MultiselectChips = ({
+	label,
+	options,
+	onChange,
+}: MultiselectChipsProps) => {
 	const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
 	const ITEM_HEIGHT = 48;
@@ -33,10 +38,15 @@ const MultiselectChips = ({ label, options }: MultiselectChipsProps) => {
 		const {
 			target: { value },
 		} = event;
+
 		setSelectedOptions(
 			// On autofill we get a stringified value.
 			typeof value === "string" ? value.split(",") : value
 		);
+
+		if (!!onChange) {
+			onChange(event);
+		}
 	};
 
 	return (

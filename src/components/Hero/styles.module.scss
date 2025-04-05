@@ -17,15 +17,15 @@
 	}
 
 	.textWrapper {
-		// width: 100%;
 		display: flex;
 		margin: 0 auto;
 		transform: translate(0, 15rem);
 		color: var(--neutral-light);
+		border-radius: 2rem;
 
 		background-color: color-mix(
 			in srgb,
-			var(--accent-hover) 80%,
+			var(--accent-background) 80%,
 			transparent
 		);
 
@@ -55,7 +55,6 @@
 			bottom: 0;
 			height: 60%;
 			width: 400px;
-			// background-color: var(--accent-active);
 
 			@include media-query("md") {
 				display: flex;

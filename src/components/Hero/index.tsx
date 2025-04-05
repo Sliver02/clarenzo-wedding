@@ -93,7 +93,9 @@ const Hero = ({ className }: BaseProps) => {
 				className={classNames(styles.textWrapper, "text--align-center")}
 			>
 				<Container>
-					<h1>Invito Matrimonio</h1>
+					<h1 className={classNames("text--h-xxl")}>
+						Invito Matrimonio
+					</h1>
 					<p
 						className={classNames(
 							"text--strong",
