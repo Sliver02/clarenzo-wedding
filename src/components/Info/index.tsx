@@ -7,6 +7,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
+import Image from "next/image";
 
 const Info = () => {
 	const position: { lat: number; lng: number } = {
@@ -18,7 +19,7 @@ const Info = () => {
 		<Container>
 			<Row>
 				<Col xs={12}>
-					<h2 className={classNames("text--h-md")}>
+					<h2 className={classNames("text--h-lg")}>
 						Siamo lieti di invitarti
 					</h2>
 					<p className={classNames("text--p-md")}>
@@ -50,9 +51,9 @@ const Info = () => {
 			/>
 			<Row>
 				<Col xs={12} lg={6}>
-					<h3 className={classNames("text--h-md")}>Dove?</h3>
+					<h3 className={classNames("text--h-lg")}>Dove?</h3>
 					<p className={classNames("text--p-md")}>
-						Festeggieremo nella incatata corine del{" "}
+						Festeggieremo nella incatata cornice del{" "}
 						<strong>Castello Papadopoli</strong>, vicino a Treviso.
 						Un vero luogo incantato per una giornata magica!
 						<br />
@@ -104,7 +105,7 @@ const Info = () => {
 			/>
 			<Row lgReverse>
 				<Col xs={12} lg={6}>
-					<h3 className={classNames("text--h-md")}>Quando?</h3>
+					<h3 className={classNames("text--h-lg")}>Quando?</h3>
 					<p className={classNames("text--p-md")}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Facere quibusdam fugiat sunt cumque, veniam eligendi!
@@ -112,14 +113,17 @@ const Info = () => {
 				</Col>
 
 				<Col xs={12} lg={6}>
-					<div
-						style={{
-							background: "gray",
-							width: "100%",
-							height: "300px",
-						}}
-					>
-						foto location in autunno
+					<div className={classNames(styles.imageContainer)}>
+						<Image
+							alt="castello"
+							src={"/castello.jpg"}
+							layout="responsive"
+							width={1200}
+							height={800}
+							style={{
+								minHeight: "100%",
+							}}
+						/>
 					</div>
 				</Col>
 			</Row>
@@ -130,7 +134,7 @@ const Info = () => {
 			/>
 			<Row>
 				<Col xs={12} lg={8}>
-					<h3 className={classNames("text--h-md")}>Programma</h3>
+					<h3 className={classNames("text--h-lg")}>Programma</h3>
 					<p className={classNames("text--p-md")}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Facere quibusdam fugiat sunt cumque, veniam eligendi!

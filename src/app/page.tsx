@@ -84,6 +84,27 @@ export default function Home() {
 						<section className={classNames(styles.section)}>
 							<ApplicationForm />
 						</section>
+						<section className={classNames(styles.section)}>
+							REGALO <br />
+							presentazione regalo + foto location <br />
+							Form <br />
+							il tuo regalo (somma in numero) <br />
+							Regalato da <br />
+							Messaggio <br />
+							email <br />
+							Coordinate bancarie <br />
+						</section>
+						<section className={classNames(styles.section)}>
+							FOTO/VIDEO OSPITI
+							<br />
+							link fotografo ufficiale
+							<br />
+							carosello <br />
+							link aperto per google drive dove caricare
+							foto/video
+							<br />
+							carosello del drive
+						</section>
 					</div>
 				</div>
 			</ThemeProvider>

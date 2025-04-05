@@ -4,7 +4,29 @@
 .mapContainer {
 	background: gray;
 	width: 100%;
-	height: 400px;
+	height: 300px;
+	border-radius: 2rem;
+	overflow: hidden;
+
+	@include media-query("lg") {
+		height: 300px;
+	}
+}
+
+.imageContainer {
+	border-radius: 2rem;
+	overflow: hidden;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include media-query("md") {
+		height: 400px;
+	}
 
 	@include media-query("lg") {
 		height: 300px;

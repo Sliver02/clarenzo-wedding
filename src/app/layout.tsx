@@ -1,6 +1,6 @@
 import "@/designSystem/globals.scss";
 import type { Metadata } from "next";
-import { Cedarville_Cursive, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lavishly_Yours } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 const geistSans = Geist({
@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
-const cedarville = Cedarville_Cursive({
+const cedarville = Lavishly_Yours({
 	variable: "--font-edarville-cursive",
 	subsets: ["latin"],
 	weight: "400",

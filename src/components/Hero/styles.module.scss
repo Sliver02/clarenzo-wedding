@@ -50,11 +50,16 @@
 
 		.leafRight,
 		.leafLeft {
+			display: none;
 			position: absolute;
 			bottom: 0;
 			height: 60%;
 			width: 400px;
 			// background-color: var(--accent-active);
+
+			@include media-query("md") {
+				display: flex;
+			}
 		}
 
 		.leafRight {

@@ -1,22 +1,23 @@
-import * as React from "react";
 // import styles from "./index.module.scss";
 import { Col, Container, Row } from "../Grid";
-import {
-	Autocomplete,
-	Button,
-	Checkbox,
-	FormControlLabel,
-	TextField,
-} from "@mui/material";
+import { Button, Checkbox, FormControlLabel, TextField } from "@mui/material";
 import MultiselectChips from "../MultiselectChips";
 import { CelebrationRounded } from "@mui/icons-material";
 import classNames from "classnames";
+import { useState } from "react";
 
-const submitForm = async () => {
-	console.log("submit-form");
-};
+export enum Partecipation {
+	YES = "Si",
+	NO = "No",
+}
 
 const ApplicationForm = () => {
+	const submitForm = async () => {
+		console.log("submit-form");
+	};
+
+	const [partecipation, setPartecipation] = useState();
+
 	return (
 		<Container>
 			<Row>
@@ -33,51 +34,47 @@ const ApplicationForm = () => {
 			</Row>
 			<Row>
 				<Col xs={12}>
-					<Autocomplete
+					<p className={classNames("text--strong")}>Parteciperai?</p>
+					<div>
+						<FormControlLabel
+							control={<Checkbox defaultChecked />}
+							label="Si"
+						/>
+						<FormControlLabel control={<Checkbox />} label="No" />
+					</div>
+				</Col>
+				<Col xs={12}>
+					<TextField fullWidth required label="Nome Cognome" />
+				</Col>
+				<Col xs={12}>
+					<p className={classNames("text--strong")}>
+						Porterai un accompagnatore?
+					</p>
+					<div>
+						<FormControlLabel
+							control={<Checkbox defaultChecked />}
+							label="Si"
+						/>
+						<FormControlLabel control={<Checkbox />} label="No" />
+					</div>
+				</Col>
+				<Col xs={12}>
+					<TextField
+						label="Nome Cognome accompagnatore"
+						required
 						fullWidth
-						options={[
-							"Jacopo Panzera",
-							"Valter Panzera",
-							"Paolo DaDeppo",
-							"Francesco Fabris",
-							"Roberto DaVià",
-							"Marco Tabacchi",
-						]}
-						renderInput={(params) => (
-							<TextField
-								{...params}
-								required
-								label="Nome ospite"
-							/>
-						)}
 					/>
-				</Col>
-				<Col xs={12}>
-					<FormControlLabel
-						control={<Checkbox defaultChecked />}
-						label="Parteciperò"
-					/>
-					<FormControlLabel
-						control={<Checkbox />}
-						label="Porterò un ospite"
-					/>
-					<FormControlLabel
-						control={<Checkbox />}
-						label="Succhierò piselli"
-					/>
-				</Col>
-				<Col xs={12}>
-					<TextField label="Chi altro porterai?" fullWidth />
 				</Col>
 				<Col xs={12}>
 					<MultiselectChips
 						label="Avvertenze alimentari"
 						options={[
+							"Vegano",
 							"Vegetariano",
-							"Celiaco",
 							"Intolleranza lattosio",
-							"Allergia Crostacei",
-							"Allergia Frutta secca",
+							"Allergia glutine",
+							"Allergia crostacei",
+							"Allergia frutta secca",
 							"Altro",
 						]}
 					/>
@@ -87,6 +84,9 @@ const ApplicationForm = () => {
 						label="Quali altre avvertenze alimenatri?"
 						fullWidth
 					/>
+				</Col>
+				<Col xs={12}>
+					<TextField label="Note" rows={3} multiline fullWidth />
 				</Col>
 				<Col xs={12}>
 					<TextField
