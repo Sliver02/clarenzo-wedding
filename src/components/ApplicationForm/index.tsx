@@ -11,6 +11,7 @@ import classNames from "classnames";
 import { useState } from "react";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
+import styles from "./styles.module.scss";
 
 export enum ResponseEnum {
 	YES = "YES",
@@ -44,95 +45,38 @@ const ApplicationForm = () => {
 
 	return (
 		<Container>
-			<Row>
-				<Col xs={12}>
-					<h3 className={classNames("text--h-md")}>
-						Facci sapere se ci sarai!
-					</h3>
-					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit. Veritatis dolorem debitis voluptatum autem vero
-						sapiente harum dignissimos molestias facere eaque.
-					</p>
-				</Col>
-			</Row>
-			<Row>
-				<Col xs={12}>
-					<p className={classNames("text--strong")}>Parteciperai?</p>
-				</Col>
-				<Col xs={12}>
-					<div>
-						<p className={classNames("text--strong")}>
-							Parteciperai?
+			<form className={classNames(styles.applicationForm)}>
+				<Row>
+					<Col xs={12}>
+						<h3 className={classNames("text--h-lg")}>
+							Facci sapere se ci sarai!
+						</h3>
+						<p className={classNames("text--p-md")}>
+							Lorem ipsum dolor, sit amet consectetur adipisicing
+							elit. Veritatis dolorem debitis voluptatum autem
+							vero sapiente harum dignissimos molestias facere
+							eaque.
 						</p>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={12}>
 						<div>
-							<FormControlLabel
-								control={
-									<Checkbox
-										onChange={() =>
-											handlePartecipating(
-												ResponseEnum.YES
-											)
-										}
-										checked={
-											isPartecipating == ResponseEnum.YES
-										}
-									/>
-								}
-								label="Si"
-							/>
-							<FormControlLabel
-								control={
-									<Checkbox
-										onChange={() =>
-											handlePartecipating(ResponseEnum.NO)
-										}
-										checked={
-											isPartecipating == ResponseEnum.NO
-										}
-									/>
-								}
-								label="No"
-							/>
-						</div>
-						{/* <ToggleButtonGroup
-							value={isPartecipating}
-							onChange={handlePartecipating}
-							color="primary"
-							size="small"
-							exclusive
-						>
-							<ToggleButton value={ResponseEnum.YES}>
-								<Check />
-								Sì
-							</ToggleButton>
-							<ToggleButton value={ResponseEnum.NO}>
-								<Close />
-								No
-							</ToggleButton>
-						</ToggleButtonGroup> */}
-					</div>
-				</Col>
-				<Col xs={12}>
-					<TextField fullWidth required label="Nome Cognome" />
-				</Col>
-			</Row>
-			{isPartecipating == ResponseEnum.YES && (
-				<>
-					<Row>
-						<Col xs={12}>
 							<p className={classNames("text--strong")}>
-								Porterai un accompagnatore?
+								Parteciperai?
 							</p>
-							<div style={{ marginTop: "0.5rem" }}>
+							<div>
 								<FormControlLabel
 									control={
 										<Checkbox
 											onChange={() =>
-												handlePlusOne(ResponseEnum.YES)
+												handlePartecipating(
+													ResponseEnum.YES
+												)
 											}
 											checked={
-												plusOne == ResponseEnum.YES
+												isPartecipating ==
+												ResponseEnum.YES
 											}
 										/>
 									}
@@ -142,80 +86,132 @@ const ApplicationForm = () => {
 									control={
 										<Checkbox
 											onChange={() =>
-												handlePlusOne(ResponseEnum.NO)
+												handlePartecipating(
+													ResponseEnum.NO
+												)
 											}
-											checked={plusOne == ResponseEnum.NO}
+											checked={
+												isPartecipating ==
+												ResponseEnum.NO
+											}
 										/>
 									}
 									label="No"
 								/>
 							</div>
-						</Col>
-						{plusOne == ResponseEnum.YES && (
+						</div>
+					</Col>
+					<Col xs={12}>
+						<TextField fullWidth required label="Nome Cognome" />
+					</Col>
+				</Row>
+				{isPartecipating == ResponseEnum.YES && (
+					<>
+						<Row>
 							<Col xs={12}>
-								<TextField
-									label="Nome Cognome accompagnatore"
-									required
-									fullWidth
+								<p className={classNames("text--strong")}>
+									Porterai un accompagnatore?
+								</p>
+								<div style={{ marginTop: "0.5rem" }}>
+									<FormControlLabel
+										control={
+											<Checkbox
+												onChange={() =>
+													handlePlusOne(
+														ResponseEnum.YES
+													)
+												}
+												checked={
+													plusOne == ResponseEnum.YES
+												}
+											/>
+										}
+										label="Si"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox
+												onChange={() =>
+													handlePlusOne(
+														ResponseEnum.NO
+													)
+												}
+												checked={
+													plusOne == ResponseEnum.NO
+												}
+											/>
+										}
+										label="No"
+									/>
+								</div>
+							</Col>
+							{plusOne == ResponseEnum.YES && (
+								<Col xs={12}>
+									<TextField
+										label="Nome Cognome accompagnatore"
+										required
+										fullWidth
+									/>
+								</Col>
+							)}
+						</Row>
+						<Row>
+							<Col xs={12}>
+								<p className={classNames("text--strong")}>
+									Hai intolleranze o allergie?
+								</p>
+							</Col>
+							<Col xs={12}>
+								<MultiselectChips
+									label="Avvertenze alimentari"
+									options={[
+										"Vegano",
+										"Vegetariano",
+										"Intolleranza lattosio",
+										"Allergia glutine",
+										"Allergia crostacei",
+										"Allergia frutta secca",
+										"Altro",
+									]}
+									onChange={handleAllergies}
 								/>
 							</Col>
-						)}
-					</Row>
-					<Row>
-						<Col xs={12}>
-							<p className={classNames("text--strong")}>
-								Hai intolleranze o allergie?
-							</p>
-						</Col>
-						<Col xs={12}>
-							<MultiselectChips
-								label="Avvertenze alimentari"
-								options={[
-									"Vegano",
-									"Vegetariano",
-									"Intolleranza lattosio",
-									"Allergia glutine",
-									"Allergia crostacei",
-									"Allergia frutta secca",
-									"Altro",
-								]}
-								onChange={handleAllergies}
-							/>
-						</Col>
-						{allergies.includes("Altro") && (
-							<Col xs={12}>
-								<TextField
-									label="Quali altre avvertenze alimenatri?"
-									required
-									fullWidth
-								/>
-							</Col>
-						)}
-					</Row>
-				</>
-			)}
-			<Row>
-				<Col xs={12}>
-					<p className={classNames("text--strong")}>
-						Mettici al corrente di qualsiasi altra esigenza o
-						dubbio!
-					</p>
-				</Col>
-				<Col xs={12}>
-					<TextField label="Note" rows={4} multiline fullWidth />
-				</Col>
-				<Col xs={12}>
-					<Button
-						type="submit"
-						onClick={() => submitForm()}
-						variant="contained"
-						size="large"
-						startIcon={<CelebrationRounded />}
-					>
-						Invia!
-					</Button>
-				</Col>
-			</Row>
+							{allergies.includes("Altro") && (
+								<Col xs={12}>
+									<TextField
+										label="Quali altre avvertenze alimenatri?"
+										required
+										fullWidth
+									/>
+								</Col>
+							)}
+						</Row>
+					</>
+				)}
+				<Row>
+					<Col xs={12}>
+						<p className={classNames("text--strong")}>
+							Mettici al corrente di qualsiasi altra esigenza o
+							dubbio!
+						</p>
+					</Col>
+					<Col xs={12}>
+						<TextField label="Note" rows={4} multiline fullWidth />
+					</Col>
+					<Col xs={12}>
+						<Button
+							fullWidth
+							size="large"
+							type="submit"
+							variant="contained"
+							startIcon={<CelebrationRounded />}
+							onClick={() => submitForm()}
+						>
+							Invia!
+						</Button>
+					</Col>
+				</Row>
+			</form>
 		</Container>
 	);
 };

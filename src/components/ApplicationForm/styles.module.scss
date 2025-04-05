@@ -1,0 +1,13 @@
+@import "@/designSystem/variables";
+@import "@/designSystem/mediaQueries";
+
+.applicationForm {
+	background-color: var(--primary-background);
+	background-color: color-mix(
+		in srgb,
+		var(--primary-active) 20%,
+		transparent
+	);
+	padding: 2rem;
+	border-radius: 1rem;
+}

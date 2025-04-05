@@ -12,13 +12,6 @@ import { useRef } from "react";
 import Image from "next/image";
 
 export default function Home() {
-	const cssVar = (name: string) =>
-		getComputedStyle(document.documentElement)
-			.getPropertyValue(name)
-			.trim();
-
-	console.log(cssVar("--primary-main"));
-
 	const theme = createTheme({
 		palette: {
 			mode: "light",
