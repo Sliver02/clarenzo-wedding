@@ -8,7 +8,7 @@ import {
 	TextField,
 } from "@mui/material";
 import classNames from "classnames";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 import styles from "./styles.module.scss";
@@ -21,8 +21,16 @@ export enum ResponseEnum {
 const ApplicationForm = () => {
 	const [isPartecipating, setIsPartecipating] = useState(ResponseEnum.YES);
 	const [plusOne, setPlusOne] = useState(ResponseEnum.NO);
+	const [plusOneName, setPlusOneName] = useState("");
 	const [sleep, setSleep] = useState(ResponseEnum.NO);
+	const [beds, setBeds] = useState(1);
 	const [allergies, setAllergies] = useState<string[]>([]);
+	const [otherAllergies, setOtherAllergies] = useState("");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [notes, setNotes] = useState("");
+	// const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
 	const handlePartecipating = (response: ResponseEnum) => {
 		setIsPartecipating(response);
@@ -30,6 +38,7 @@ const ApplicationForm = () => {
 
 	const handlePlusOne = (response: ResponseEnum) => {
 		setPlusOne(response);
+		setBeds(response == ResponseEnum.YES ? 2 : 1);
 	};
 
 	const handleSleep = (response: ResponseEnum) => {
@@ -44,13 +53,47 @@ const ApplicationForm = () => {
 		setAllergies(value as string[]);
 	};
 
-	const submitForm = async () => {
+	const submitForm = async (e: FormEvent<HTMLFormElement>) => {
 		console.log("submit-form");
+		e.preventDefault();
+
+		try {
+			const res = await fetch("/api/send-application", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					name,
+					email,
+					phone,
+					isPartecipating,
+					plusOne,
+					plusOneName,
+					sleep,
+					beds,
+					allergies,
+					otherAllergies,
+					notes,
+				}),
+			});
+
+			if (res.ok) {
+				console.log("Email inviata!");
+			} else {
+				console.error("Errore nell'invio");
+			}
+		} catch (error) {
+			console.error("Errore:", error);
+		}
 	};
 
 	return (
 		<Container>
-			<form className={classNames(styles.applicationForm)}>
+			<form
+				className={classNames(styles.applicationForm)}
+				onSubmit={submitForm}
+			>
 				<Row>
 					<Col xs={12}>
 						<h3 className={classNames("text--h-lg")}>
@@ -107,7 +150,12 @@ const ApplicationForm = () => {
 						</div>
 					</Col>
 					<Col xs={12}>
-						<TextField fullWidth required label="Nome Cognome" />
+						<TextField
+							fullWidth
+							required
+							label="Nome Cognome"
+							onChange={(e) => setName(e.target.value)}
+						/>
 					</Col>
 				</Row>
 				{isPartecipating == ResponseEnum.YES && (
@@ -154,6 +202,9 @@ const ApplicationForm = () => {
 								<Col xs={12}>
 									<TextField
 										label="Nome Cognome accompagnatore"
+										onChange={(e) =>
+											setPlusOneName(e.target.value)
+										}
 										required
 										fullWidth
 									/>
@@ -206,11 +257,12 @@ const ApplicationForm = () => {
 									<TextField
 										fullWidth
 										required
-										defaultValue={
-											plusOne == ResponseEnum.YES ? 2 : 1
-										}
+										value={beds}
 										type="number"
 										label="Quanti posti letto ti serviranno?"
+										onChange={(e) =>
+											setBeds(Number(e.target.value))
+										}
 									/>
 								</Col>
 							)}
@@ -239,9 +291,12 @@ const ApplicationForm = () => {
 							{allergies.includes("Altro") && (
 								<Col xs={12}>
 									<TextField
-										label="Quali altre avvertenze alimenatri?"
 										required
 										fullWidth
+										label="Quali altre avvertenze alimenatri?"
+										onChange={(e) =>
+											setOtherAllergies(e.target.value)
+										}
 									/>
 								</Col>
 							)}
@@ -251,12 +306,40 @@ const ApplicationForm = () => {
 				<Row>
 					<Col xs={12}>
 						<p className={classNames("text--strong")}>
+							Come possiamo contattarti?
+						</p>
+					</Col>
+					<Col xs={12} md={6}>
+						<TextField
+							required
+							fullWidth
+							label="Email"
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</Col>
+					<Col xs={12} md={6}>
+						<TextField
+							fullWidth
+							label="Telefono"
+							onChange={(e) => setPhone(e.target.value)}
+						/>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={12}>
+						<p className={classNames("text--strong")}>
 							Mettici al corrente di qualsiasi altra esigenza o
 							dubbio!
 						</p>
 					</Col>
 					<Col xs={12}>
-						<TextField label="Note" rows={4} multiline fullWidth />
+						<TextField
+							multiline
+							fullWidth
+							label="Note"
+							rows={4}
+							onChange={(e) => setNotes(e.target.value)}
+						/>
 					</Col>
 					<Col xs={12}>
 						<Button
@@ -265,7 +348,6 @@ const ApplicationForm = () => {
 							type="submit"
 							variant="contained"
 							startIcon={<CelebrationRounded />}
-							onClick={() => submitForm()}
 						>
 							Invia!
 						</Button>
