@@ -13,6 +13,7 @@ import Image from "next/image";
 import GiftForm from "@/components/GiftForm";
 import Presentations from "@/components/Presentations";
 import Gallery from "@/components/Gallery";
+import Footer from "@/components/Footer";
 
 export default function Home() {
 	const theme = createTheme({
@@ -99,6 +100,9 @@ export default function Home() {
 						</section>
 						<section className={classNames(styles.section)}>
 							<Gallery />
+						</section>
+						<section className={classNames(styles.section)}>
+							<Footer />
 						</section>
 					</div>
 				</div>
