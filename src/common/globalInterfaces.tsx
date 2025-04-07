@@ -62,3 +62,10 @@ export interface ApplicationTemplateProps {
 	phone?: string;
 	notes?: string;
 }
+
+export interface GiftTemplateProps {
+	gift: number;
+	names: string;
+	email: string;
+	message?: string;
+}

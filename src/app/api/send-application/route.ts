@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_KEY);
+const recivinigEmail = process.env.NEXT_PUBLIC_RESEND_EMAIL as string;
 
 export const POST = async (req: Request) => {
 	try {
@@ -25,7 +26,7 @@ export const POST = async (req: Request) => {
 
 		const { data, error } = await resend.emails.send({
 			from: "RSVP <onboarding@resend.dev>",
-			to: ["japo02@hotmail.it"], // replace with yours
+			to: [recivinigEmail],
 			subject: `Risposta invito di ${name}`,
 			react: ApplicationTemplate({
 				name,

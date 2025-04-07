@@ -16,6 +16,8 @@ const ApplicationTemplate: React.FC<Readonly<ApplicationTemplateProps>> = ({
 	<div>
 		<h1>RSVP ricevuto da {name}</h1>
 		<p>
+			<strong>Name:</strong> {name}
+			<br />
 			<strong>Email:</strong> {email}
 			{phone && (
 				<>
