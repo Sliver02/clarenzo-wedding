@@ -21,11 +21,8 @@ export enum ResponseEnum {
 const ApplicationForm = () => {
 	const [isPartecipating, setIsPartecipating] = useState(ResponseEnum.YES);
 	const [plusOne, setPlusOne] = useState(ResponseEnum.NO);
+	const [sleep, setSleep] = useState(ResponseEnum.NO);
 	const [allergies, setAllergies] = useState<string[]>([]);
-
-	const submitForm = async () => {
-		console.log("submit-form");
-	};
 
 	const handlePartecipating = (response: ResponseEnum) => {
 		setIsPartecipating(response);
@@ -35,12 +32,20 @@ const ApplicationForm = () => {
 		setPlusOne(response);
 	};
 
+	const handleSleep = (response: ResponseEnum) => {
+		setSleep(response);
+	};
+
 	const handleAllergies = (event: SelectChangeEvent<string[]>) => {
 		const {
 			target: { value },
 		} = event;
 
 		setAllergies(value as string[]);
+	};
+
+	const submitForm = async () => {
+		console.log("submit-form");
 	};
 
 	return (
@@ -151,6 +156,61 @@ const ApplicationForm = () => {
 										label="Nome Cognome accompagnatore"
 										required
 										fullWidth
+									/>
+								</Col>
+							)}
+						</Row>
+						<Row>
+							<Col xs={12}>
+								<div>
+									<p className={classNames("text--strong")}>
+										Ti fermerai a dormire?
+									</p>
+									<div>
+										<FormControlLabel
+											control={
+												<Checkbox
+													onChange={() =>
+														handleSleep(
+															ResponseEnum.YES
+														)
+													}
+													checked={
+														sleep ==
+														ResponseEnum.YES
+													}
+												/>
+											}
+											label="Si"
+										/>
+										<FormControlLabel
+											control={
+												<Checkbox
+													onChange={() =>
+														handleSleep(
+															ResponseEnum.NO
+														)
+													}
+													checked={
+														sleep == ResponseEnum.NO
+													}
+												/>
+											}
+											label="No"
+										/>
+									</div>
+								</div>
+							</Col>
+							{sleep == ResponseEnum.YES && (
+								<Col xs={12}>
+									<TextField
+										fullWidth
+										required
+										defaultValue={
+											plusOne == ResponseEnum.YES ? 2 : 1
+										}
+										type="number"
+										label="Quanti posti letto ti serviranno?"
 									/>
 								</Col>
 							)}

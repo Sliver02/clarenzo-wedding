@@ -8,7 +8,7 @@ const Presentations = () => {
 		<Container>
 			<Row>
 				<Col>
-					<h3 className={classNames("text--h-lg")}>Protagonisti</h3>
+					<h3 className={classNames("text--h-xl")}>Sposi</h3>
 				</Col>
 			</Row>
 			<Row>
@@ -25,7 +25,9 @@ const Presentations = () => {
 							}}
 						/>
 						<div className={classNames(styles.gradient)} />
-						<h3 className={classNames(styles.name)}>Sposo</h3>
+						<h3 className={classNames(styles.name, "text--h-lg")}>
+							Clara
+						</h3>
 					</div>
 				</Col>
 				<Col xs={12} md={5}>
@@ -41,7 +43,109 @@ const Presentations = () => {
 							}}
 						/>
 						<div className={classNames(styles.gradient)} />
-						<h3 className={classNames(styles.name)}>Sposo</h3>
+						<h3 className={classNames(styles.name)}>Lorenzo</h3>
+					</div>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<h3 className={classNames("text--h-lg")}>Testimoni</h3>
+				</Col>
+			</Row>
+			<Row>
+				<Col xs={12} md={4}>
+					<div
+						className={classNames(
+							styles.portrait,
+							styles["portrait--medium"]
+						)}
+					>
+						<Image
+							alt="portait"
+							width={300}
+							height={300}
+							src={"/sposa.jpg"}
+							layout="responsive"
+							style={{
+								minHeight: "100%",
+							}}
+						/>
+						<div className={classNames(styles.gradient)} />
+						<h3 className={classNames(styles.name)}>Federica</h3>
+					</div>
+				</Col>
+				<Col xs={12} md={4}>
+					<div
+						className={classNames(
+							styles.portrait,
+							styles["portrait--medium"]
+						)}
+					>
+						<Image
+							alt="portait"
+							width={300}
+							height={300}
+							src={"/sposo.webp"}
+							layout="responsive"
+							style={{
+								minHeight: "100%",
+							}}
+						/>
+						<div className={classNames(styles.gradient)} />
+						<h3 className={classNames(styles.name)}>Jacopo</h3>
+					</div>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<h3 className={classNames("text--h-md")}>Paggetti</h3>
+				</Col>
+			</Row>
+			<Row>
+				<Col xs={12} md={3}>
+					<div
+						className={classNames(
+							styles.portrait,
+							styles["portrait--small"]
+						)}
+					>
+						<Image
+							alt="portait"
+							width={300}
+							height={300}
+							src={"/sposa.jpg"}
+							layout="responsive"
+							style={{
+								minHeight: "100%",
+							}}
+						/>
+						<div className={classNames(styles.gradient)} />
+						<h3 className={classNames(styles.name, "text--h-lg")}>
+							Stitch
+						</h3>
+					</div>
+				</Col>
+				<Col xs={12} md={3}>
+					<div
+						className={classNames(
+							styles.portrait,
+							styles["portrait--small"]
+						)}
+					>
+						<Image
+							alt="portait"
+							width={300}
+							height={300}
+							src={"/sposo.webp"}
+							layout="responsive"
+							style={{
+								minHeight: "100%",
+							}}
+						/>
+						<div className={classNames(styles.gradient)} />
+						<h3 className={classNames(styles.name, "text--h-sm")}>
+							Peanut Butter
+						</h3>
 					</div>
 				</Col>
 			</Row>

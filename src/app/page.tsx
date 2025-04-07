@@ -12,6 +12,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import GiftForm from "@/components/GiftForm";
 import Presentations from "@/components/Presentations";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
 	const theme = createTheme({
@@ -97,15 +98,7 @@ export default function Home() {
 							<GiftForm />
 						</section>
 						<section className={classNames(styles.section)}>
-							FOTO/VIDEO OSPITI
-							<br />
-							link fotografo ufficiale
-							<br />
-							carosello <br />
-							link aperto per google drive dove caricare
-							foto/video
-							<br />
-							carosello del drive
+							<Gallery />
 						</section>
 					</div>
 				</div>
