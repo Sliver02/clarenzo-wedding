@@ -314,6 +314,7 @@ const ApplicationForm = () => {
 						<TextField
 							required
 							fullWidth
+							type="email"
 							label="Email"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
