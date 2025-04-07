@@ -69,3 +69,8 @@ export interface GiftTemplateProps {
 	email: string;
 	message?: string;
 }
+
+export interface AlertResponse {
+	severity: "success" | "warning" | "error";
+	text: string;
+}

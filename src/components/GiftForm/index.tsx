@@ -1,11 +1,11 @@
 import { FavoriteRounded } from "@mui/icons-material";
-import { Button, TextField } from "@mui/material";
+import { Alert, Button, TextField } from "@mui/material";
 import classNames from "classnames";
 import Image from "next/image";
 import { Col, Container, Row } from "../Grid";
 import styles from "./styles.module.scss";
 import { FormEvent, useState } from "react";
-import { GiftTemplateProps } from "@/common/globalInterfaces";
+import { AlertResponse, GiftTemplateProps } from "@/common/globalInterfaces";
 
 const GiftForm = () => {
 	const [names, setNames] = useState("");
@@ -13,11 +13,16 @@ const GiftForm = () => {
 	const [giftValue, setGiftValue] = useState(0);
 	const [message, setMessage] = useState("");
 
+	const [loading, setLoading] = useState(false);
+	const [alert, setAlert] = useState<AlertResponse | null>(null);
+
 	const submitForm = async (e: FormEvent<HTMLFormElement>) => {
 		console.log("submit-form");
 		e.preventDefault();
 
 		try {
+			setLoading(true);
+
 			const res = await fetch("/api/send-gift", {
 				method: "POST",
 				headers: {
@@ -33,11 +38,25 @@ const GiftForm = () => {
 
 			if (res.ok) {
 				console.log("Email inviata!");
+				setAlert({
+					severity: "success",
+					text: "Email inviata!",
+				});
 			} else {
 				console.error("Errore nell'invio");
+				setAlert({
+					severity: "error",
+					text: "Errore nell'invio",
+				});
 			}
 		} catch (error) {
 			console.error("Errore:", error);
+			setAlert({
+				severity: "error",
+				text: "Errore: " + error,
+			});
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -208,10 +227,24 @@ const GiftForm = () => {
 							size="large"
 							type="submit"
 							variant="contained"
+							disabled={loading}
 							startIcon={<FavoriteRounded />}
 						>
-							Invia!
+							{loading ? "Loading..." : "Invia!"}
 						</Button>
+					</Col>
+				</Row>
+				<Row>
+					<Col>
+						{alert && (
+							<Alert
+								variant="outlined"
+								severity={alert.severity}
+								onClose={() => setAlert(null)}
+							>
+								{alert.text}
+							</Alert>
+						)}
 					</Col>
 				</Row>
 			</form>

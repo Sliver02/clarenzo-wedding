@@ -1,6 +1,7 @@
 // import styles from "./index.module.scss";
 import { CelebrationRounded } from "@mui/icons-material";
 import {
+	Alert,
 	Button,
 	Checkbox,
 	FormControlLabel,
@@ -12,7 +13,10 @@ import { FormEvent, useState } from "react";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 import styles from "./styles.module.scss";
-import { ApplicationTemplateProps } from "@/common/globalInterfaces";
+import {
+	AlertResponse,
+	ApplicationTemplateProps,
+} from "@/common/globalInterfaces";
 
 export enum ResponseEnum {
 	YES = "YES",
@@ -31,7 +35,9 @@ const ApplicationForm = () => {
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [notes, setNotes] = useState("");
-	// const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+	const [loading, setLoading] = useState(false);
+	const [alert, setAlert] = useState<AlertResponse | null>(null);
 
 	const handlePartecipating = (response: ResponseEnum) => {
 		setIsPartecipating(response);
@@ -59,6 +65,8 @@ const ApplicationForm = () => {
 		e.preventDefault();
 
 		try {
+			setLoading(true);
+
 			const res = await fetch("/api/send-application", {
 				method: "POST",
 				headers: {
@@ -81,11 +89,25 @@ const ApplicationForm = () => {
 
 			if (res.ok) {
 				console.log("Email inviata!");
+				setAlert({
+					severity: "success",
+					text: "Email inviata!",
+				});
 			} else {
 				console.error("Errore nell'invio");
+				setAlert({
+					severity: "error",
+					text: "Errore nell'invio",
+				});
 			}
 		} catch (error) {
 			console.error("Errore:", error);
+			setAlert({
+				severity: "error",
+				text: "Errore: " + error,
+			});
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -349,10 +371,24 @@ const ApplicationForm = () => {
 							size="large"
 							type="submit"
 							variant="contained"
+							disabled={loading}
 							startIcon={<CelebrationRounded />}
 						>
-							Invia!
+							{loading ? "Loading..." : "Invia!"}
 						</Button>
+					</Col>
+				</Row>
+				<Row>
+					<Col>
+						{alert && (
+							<Alert
+								variant="outlined"
+								severity={alert.severity}
+								onClose={() => setAlert(null)}
+							>
+								{alert.text}
+							</Alert>
+						)}
 					</Col>
 				</Row>
 			</form>
