@@ -64,7 +64,7 @@ export interface ApplicationTemplateProps {
 }
 
 export interface GiftTemplateProps {
-	gift: number;
+	giftValue: number;
 	names: string;
 	email: string;
 	message?: string;

@@ -12,6 +12,7 @@ import { FormEvent, useState } from "react";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 import styles from "./styles.module.scss";
+import { ApplicationTemplateProps } from "@/common/globalInterfaces";
 
 export enum ResponseEnum {
 	YES = "YES",
@@ -75,7 +76,7 @@ const ApplicationForm = () => {
 					allergies,
 					otherAllergies,
 					notes,
-				}),
+				} as ApplicationTemplateProps),
 			});
 
 			if (res.ok) {

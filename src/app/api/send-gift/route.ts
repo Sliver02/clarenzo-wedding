@@ -10,14 +10,14 @@ export const POST = async (req: Request) => {
 	try {
 		const body: GiftTemplateProps = await req.json();
 
-		const { gift, names, email, message } = body;
+		const { giftValue, names, email, message } = body;
 
 		const { data, error } = await resend.emails.send({
 			from: "GIFT <onboarding@resend.dev>",
 			to: [recivinigEmail],
-			subject: `Regalo da parte di ${name}`,
+			subject: `Regalo da parte di ${names}`,
 			react: GiftTemplate({
-				gift,
+				giftValue,
 				names,
 				email,
 				message,

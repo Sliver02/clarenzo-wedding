@@ -4,18 +4,46 @@ import classNames from "classnames";
 import Image from "next/image";
 import { Col, Container, Row } from "../Grid";
 import styles from "./styles.module.scss";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { GiftTemplateProps } from "@/common/globalInterfaces";
 
 const GiftForm = () => {
+	const [names, setNames] = useState("");
+	const [email, setEmail] = useState("");
 	const [giftValue, setGiftValue] = useState(0);
+	const [message, setMessage] = useState("");
 
-	const submitForm = async () => {
+	const submitForm = async (e: FormEvent<HTMLFormElement>) => {
 		console.log("submit-form");
+		e.preventDefault();
+
+		try {
+			const res = await fetch("/api/send-gift", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					names,
+					email,
+					giftValue,
+					message,
+				} as GiftTemplateProps),
+			});
+
+			if (res.ok) {
+				console.log("Email inviata!");
+			} else {
+				console.error("Errore nell'invio");
+			}
+		} catch (error) {
+			console.error("Errore:", error);
+		}
 	};
 
 	return (
 		<Container>
-			<form className={classNames(styles.giftForm)}>
+			<form className={classNames(styles.giftForm)} onSubmit={submitForm}>
 				<Row>
 					<Col xs={12}>
 						<h3 className={classNames("text--h-lg")}>
@@ -146,6 +174,7 @@ const GiftForm = () => {
 							fullWidth
 							required
 							label="Nome e cognome partecipanti"
+							onChange={(e) => setNames(e.target.value)}
 						/>
 					</Col>
 					<Col xs={12}>
@@ -154,6 +183,7 @@ const GiftForm = () => {
 							required
 							type="email"
 							label="email"
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</Col>
 				</Row>
@@ -169,6 +199,7 @@ const GiftForm = () => {
 							rows={8}
 							multiline
 							fullWidth
+							onChange={(e) => setMessage(e.target.value)}
 						/>
 					</Col>
 					<Col xs={12}>
@@ -178,7 +209,6 @@ const GiftForm = () => {
 							type="submit"
 							variant="contained"
 							startIcon={<FavoriteRounded />}
-							onClick={() => submitForm()}
 						>
 							Invia!
 						</Button>

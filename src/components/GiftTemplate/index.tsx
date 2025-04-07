@@ -3,7 +3,7 @@ import { GiftTemplateProps } from "@/common/globalInterfaces";
 const GiftTemplate: React.FC<Readonly<GiftTemplateProps>> = ({
 	names,
 	email,
-	gift,
+	giftValue,
 	message,
 }) => (
 	<div>
@@ -14,7 +14,7 @@ const GiftTemplate: React.FC<Readonly<GiftTemplateProps>> = ({
 			<strong>Email:</strong> {email}
 		</p>
 		<p>
-			<strong>Gift:</strong> {gift}
+			<strong>Gift value:</strong> {giftValue}
 		</p>
 		{message && (
 			<p>
