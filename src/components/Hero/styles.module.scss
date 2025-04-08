@@ -7,10 +7,6 @@
 	flex-direction: column;
 	justify-content: center;
 	height: 700px;
-	// max-height: 1150px;
-	// overflow: hidden;
-
-	// background-color: var(--primary-hover);
 
 	@include media-query("lg") {
 		height: 1040px;
@@ -29,12 +25,20 @@
 			transparent
 		);
 
-		line-height: 0.5;
+		.title {
+			font-size: 3rem;
+			line-height: 0.8;
+		}
 
 		@include media-query("lg") {
-			transform: translate(0, 20rem);
+			transform: translate(0, 23rem);
 			line-height: 0.8;
 			white-space: nowrap;
+
+			.title {
+				font-size: 4rem;
+				line-height: 0.8;
+			}
 		}
 	}
 

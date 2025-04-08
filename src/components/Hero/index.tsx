@@ -93,7 +93,7 @@ const Hero = ({ className }: BaseProps) => {
 				className={classNames(styles.textWrapper, "text--align-center")}
 			>
 				<Container>
-					<h1 className={classNames("text--h-xxl")}>
+					<h1 className={classNames(styles.title)}>
 						Matrimonio al Castello
 					</h1>
 					<p
@@ -103,7 +103,7 @@ const Hero = ({ className }: BaseProps) => {
 							"text--italic"
 						)}
 					>
-						Clara & Lorenzo 07.09.2025
+						Clara & Lorenzo - 07.09.2025
 					</p>
 				</Container>
 			</div>
