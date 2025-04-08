@@ -96,7 +96,7 @@ const ApplicationForm = () => {
 				{
 					name,
 					email,
-                    title: "RSVP inviato da",
+					title: "RSVP inviato da",
 					message_html: htmlContent,
 				},
 				publicKey
@@ -135,13 +135,12 @@ const ApplicationForm = () => {
 				<Row>
 					<Col xs={12}>
 						<h3 className={classNames("text--h-lg")}>
-							Facci sapere se ci sarai!
+							Répondez S’il Vous Plaît
 						</h3>
 						<p className={classNames("text--p-md")}>
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Veritatis dolorem debitis voluptatum autem
-							vero sapiente harum dignissimos molestias facere
-							eaque.
+							Fateci sapere se parteciperete alla nostra giornata,
+							in quanti sarete e tutto ciò che può esserci utile
+							per accogliervi al meglio.
 						</p>
 					</Col>
 				</Row>

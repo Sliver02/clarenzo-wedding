@@ -80,46 +80,16 @@ const GiftForm = () => {
 	return (
 		<Container>
 			<form className={classNames(styles.giftForm)} onSubmit={submitForm}>
-				<Row>
-					<Col xs={12}>
-						<h3 className={classNames("text--h-lg")}>
-							Aiutaci con la Luna di Miele!
-						</h3>
-						<p className={classNames("text--p-md")}>
-							Lorem ipsum dolor, sit amet consectetur adipisicing
-							elit. Veritatis dolorem debitis voluptatum autem
-							vero sapiente harum dignissimos molestias facere
-							eaque.
-						</p>
-					</Col>
-				</Row>
 				<Row lgReverse>
 					<Col xs={12} lg={6}>
-						<h3 className={classNames("text--h-lg")}>Il Viaggio</h3>
+						<h3 className={classNames("text--h-lg")}>
+							Luna di Miele
+						</h3>
 						<p className={classNames("text--p-md")}>
-							Lorem ipsum dolor sit amet consectetur adipisicing
-							elit. Facere quibusdam fugiat sunt cumque, veniam
-							eligendi!
+							Se lo desiderate potete contribuire a realizzare la
+							nostra Luna di Miele
 						</p>
-					</Col>
-
-					<Col xs={12} lg={6}>
-						<div className={classNames("imageContainer")}>
-							<Image
-								alt="castello"
-								src={"/castello.jpg"}
-								layout="responsive"
-								width={1200}
-								height={800}
-								style={{
-									minHeight: "100%",
-								}}
-							/>
-						</div>
-					</Col>
-				</Row>
-				<Row>
-					<Col xs={12}>
+						<br />
 						<p className={classNames("text--strong")}>
 							Coordinate Bancarie:
 						</p>
@@ -131,6 +101,24 @@ const GiftForm = () => {
 							<strong>Causale:</strong> regalo matrimonio
 						</p>
 					</Col>
+
+					<Col xs={12} lg={6}>
+						<div className={classNames("imageContainer")}>
+							<Image
+								alt="castello"
+								src={"/presentations/both.jpg"}
+								layout="responsive"
+								width={1200}
+								height={800}
+								style={{
+									minHeight: "100%",
+								}}
+							/>
+						</div>
+					</Col>
+				</Row>
+				<Row>
+					<Col xs={12}></Col>
 				</Row>
 				<Row>
 					<Col xs={12}>

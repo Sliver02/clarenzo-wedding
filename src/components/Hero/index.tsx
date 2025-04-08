@@ -94,7 +94,7 @@ const Hero = ({ className }: BaseProps) => {
 			>
 				<Container>
 					<h1 className={classNames("text--h-xxl")}>
-						Invito Matrimonio
+						Matrimonio al Castello
 					</h1>
 					<p
 						className={classNames(
@@ -103,7 +103,7 @@ const Hero = ({ className }: BaseProps) => {
 							"text--italic"
 						)}
 					>
-						di Clara e Lorenzo
+						Clara & Lorenzo 07.09.2025
 					</p>
 				</Container>
 			</div>

@@ -1,6 +1,9 @@
+@import "@/designSystem/variables";
+@import "@/designSystem/mediaQueries";
+
 .portrait {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	position: relative;
 	overflow: hidden;
 	width: 100%;
@@ -9,12 +12,24 @@
 	border-radius: 2rem;
 	background-color: var(--primary-main);
 
+	@include media-query("md") {
+		align-items: center;
+	}
+
+	&--center {
+		align-items: center;
+	}
+
 	&--medium {
-		height: 250px;
+		@include media-query("md") {
+			height: 250px;
+		}
 	}
 
 	&--small {
-		height: 200px;
+		@include media-query("md") {
+			height: 200px;
+		}
 	}
 
 	.name {

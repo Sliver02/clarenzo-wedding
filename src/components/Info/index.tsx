@@ -20,27 +20,32 @@ const Info = () => {
 			<Row>
 				<Col xs={12}>
 					<h2 className={classNames("text--h-lg")}>
-						Siamo lieti di invitarti
+						Una giornata di festa
 					</h2>
 					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit. Incidunt fugiat natus tempore rem mollitia itaque
-						pariatur optio quasi ut, neque blanditiis molestiae
-						perferendis saepe officiis eligendi, cumque dolore
-						maxime, quidem fugit atque sunt iure. Animi pariatur
-						nesciunt consequatur dolores esse.
+						All’inizio del mese di settembre si celebrerà il nostro
+						matrimonio. Sì, ci sposiamo! La nostra gioia più grande
+						sarà avere con noi tutti gli amici e gli affetti più
+						cari, per festeggiare questo momento con allegria e
+						divertimento. La cerimonia (civile) si svolgerà al
+						Castello Papadopoli Giol, un luogo che ci ha colpito per
+						il suo fascino antico e la natura lussureggiante.
 					</p>
 				</Col>
 			</Row>
 			<Row>
 				<Col xs={12}>
 					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor, sit amet consectetur adipisicing
-						elit. Incidunt fugiat natus tempore rem mollitia itaque
-						pariatur optio quasi ut, neque blanditiis molestiae
-						perferendis saepe officiis eligendi, cumque dolore
-						maxime, quidem fugit atque sunt iure. Animi pariatur
-						nesciunt consequatur dolores esse.
+						Successivamente, sarete tutti nostri ospiti al
+						banchetto, che si terrà sempre al Castello. Il filo
+						conduttore della giornata sarà legato a una passione da
+						noi condivisa, il mondo fantasy della Terra di Mezzo.
+						Perciò, se amate anche voi lasciarvi trasportare dalla
+						fantasia, fatevi guidare dalle fogge elfiche e dai
+						colori del bosco per abiti e accessori. Se non sapete di
+						cosa stiamo parlando, va benissimo lo stesso, accogliamo
+						qualsiasi stile e/o colore, dal frac ai jeans, dalle
+						camicie a quadri alle tute da snowboard!
 					</p>
 				</Col>
 			</Row>
@@ -53,13 +58,24 @@ const Info = () => {
 				<Col xs={12} lg={6}>
 					<h3 className={classNames("text--h-lg")}>Dove?</h3>
 					<p className={classNames("text--p-md")}>
-						Festeggieremo nella incatata cornice del{" "}
-						<strong>Castello Papadopoli</strong>, vicino a Treviso.
-						Un vero luogo incantato per una giornata magica!
+						La cornice incantata di tutta la giornata sarà il
+						Castello Papadopoli Giol, a San Polo di Piave, non
+						lontano da Treviso e vicino all’uscita dell’autostrada.
+						Il posto ha un suo parcheggio interno. Per chi vedesse
+						la strada di ritorno a casa troppo lunga e tortuosa, ci
+						sarà la possibilità di prenotare in zona una stanza in
+						cui fermarsi per la notte.
+					</p>
+					<br />
+					<p className={classNames("text--p-md")}>
+						<strong>
+							Villa Castello Papadopoli Giol e Parco Giol
+						</strong>
 						<br />
 						<br />
 						<strong>Piazza Papadopoli, 2</strong>
-						<br /> 31020 <strong>San Polo di Piave</strong> TV
+						<br />
+						31020 <strong>San Polo di Piave</strong> TV
 					</p>
 				</Col>
 
@@ -106,9 +122,11 @@ const Info = () => {
 			<Row lgReverse>
 				<Col xs={12} lg={6}>
 					<h3 className={classNames("text--h-lg")}>Quando?</h3>
+					<p className={classNames("text--p-md", "text--strong")}>
+						Domenica 07.09.2025
+					</p>
 					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Facere quibusdam fugiat sunt cumque, veniam eligendi!
+						Appuntamento alle <strong>ore 11:30</strong>
 					</p>
 				</Col>
 
@@ -134,7 +152,9 @@ const Info = () => {
 			/>
 			<Row>
 				<Col xs={12} lg={8}>
-					<h3 className={classNames("text--h-lg")}>Programma</h3>
+					<h3 className={classNames("text--h-lg")}>
+						Le tappe del viaggio
+					</h3>
 					<p className={classNames("text--p-md")}>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Facere quibusdam fugiat sunt cumque, veniam eligendi!
@@ -146,24 +166,22 @@ const Info = () => {
 					/>
 					<ul>
 						<li>
-							<strong>attivitá 1, 9:00</strong> - Lorem ipsum
-							dolor sit amet consectetur adipisicing elit.
-							Recusandae quaerat porro veritatis?
+							<strong>12:00</strong> - “Una festa a lungo attesa”
+							nella Contea: <strong>la cerimonia</strong>
 						</li>
 						<li>
-							<strong>attivitá 2, 9:00</strong> - Lorem ipsum
-							dolor sit amet consectetur adipisicing elit.
-							Recusandae quaerat porro veritatis?
+							<strong>13:00</strong> -“Molti incontri” a Gran
+							Burrone: <strong>il ricevimento</strong>
 						</li>
 						<li>
-							<strong>attivitá 3, 9:00</strong> - Lorem ipsum
-							dolor sit amet consectetur adipisicing elit.
-							Recusandae quaerat porro veritatis?
+							<strong>16:00</strong> - “Lo stagno proibito”:{" "}
+							<strong>svago al Castello</strong>
 						</li>
 						<li>
-							<strong>attivitá 4, 9:00</strong> - Lorem ipsum
-							dolor sit amet consectetur adipisicing elit.
-							Recusandae quaerat porro veritatis?
+							<strong>18:00</strong> - “Monte Fato”:{" "}
+							<strong>
+								serata danzante finché non arrivano le aquile{" "}
+							</strong>
 						</li>
 					</ul>
 				</Col>

@@ -8,7 +8,14 @@ const Presentations = () => {
 		<Container>
 			<Row>
 				<Col>
-					<h3 className={classNames("text--h-xl")}>Sposi</h3>
+					<h3 className={classNames("text--h-xl")}>
+						I Protagonisti!
+					</h3>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<h3 className={classNames("text--h-lg")}>Sposi</h3>
 				</Col>
 			</Row>
 			<Row>
@@ -18,7 +25,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposa.jpg"}
+							src={"/presentations/clara.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -31,12 +38,17 @@ const Presentations = () => {
 					</div>
 				</Col>
 				<Col xs={12} md={5}>
-					<div className={classNames(styles.portrait)}>
+					<div
+						className={classNames(
+							styles.portrait,
+							styles["portrait--center"]
+						)}
+					>
 						<Image
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposo.webp"}
+							src={"/presentations/lorenzo3.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -57,14 +69,15 @@ const Presentations = () => {
 					<div
 						className={classNames(
 							styles.portrait,
-							styles["portrait--medium"]
+							styles["portrait--medium"],
+							styles["portrait--center"]
 						)}
 					>
 						<Image
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposa.jpg"}
+							src={"/presentations/federica.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -85,7 +98,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposo.webp"}
+							src={"/presentations/jacopo.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -113,7 +126,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposa.jpg"}
+							src={"/presentations/stitch.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -136,7 +149,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/sposo.webp"}
+							src={"/presentations/butter.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
