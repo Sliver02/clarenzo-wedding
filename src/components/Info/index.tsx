@@ -30,22 +30,22 @@ const Info = () => {
 						divertimento. La cerimonia (civile) si svolgerà al
 						Castello Papadopoli Giol, un luogo che ci ha colpito per
 						il suo fascino antico e la natura lussureggiante.
+						Successivamente, sarete tutti nostri ospiti al
+						banchetto, che si terrà sempre al Castello.
 					</p>
 				</Col>
 			</Row>
 			<Row>
 				<Col xs={12}>
 					<p className={classNames("text--p-md")}>
-						Successivamente, sarete tutti nostri ospiti al
-						banchetto, che si terrà sempre al Castello. Il filo
-						conduttore della giornata sarà legato a una passione da
-						noi condivisa, il mondo fantasy della Terra di Mezzo.
-						Perciò, se amate anche voi lasciarvi trasportare dalla
-						fantasia, fatevi guidare dalle fogge elfiche e dai
-						colori del bosco per abiti e accessori. Se non sapete di
-						cosa stiamo parlando, va benissimo lo stesso, accogliamo
-						qualsiasi stile e/o colore, dal frac ai jeans, dalle
-						camicie a quadri alle tute da snowboard!
+						Il filo conduttore della giornata sarà legato a una
+						passione da noi condivisa, il mondo fantasy della Terra
+						di Mezzo. Perciò, se amate anche voi lasciarvi
+						trasportare dalla fantasia, fatevi guidare dalle fogge
+						elfiche e dai colori del bosco per abiti e accessori. Se
+						non sapete di cosa stiamo parlando, va benissimo lo
+						stesso, accogliamo qualsiasi stile e/o colore, dal frac
+						ai jeans, dalle camicie a quadri alle tute da snowboard!
 					</p>
 				</Col>
 			</Row>
@@ -155,10 +155,7 @@ const Info = () => {
 					<h3 className={classNames("text--h-lg")}>
 						Le tappe del viaggio
 					</h3>
-					<p className={classNames("text--p-md")}>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Facere quibusdam fugiat sunt cumque, veniam eligendi!
-					</p>
+
 					<div
 						style={{
 							marginTop: "2rem",

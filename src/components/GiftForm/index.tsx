@@ -86,19 +86,19 @@ const GiftForm = () => {
 							Luna di Miele
 						</h3>
 						<p className={classNames("text--p-md")}>
-							Se lo desiderate potete contribuire a realizzare la
-							nostra Luna di Miele
+							Se lo desiderate, potete contribuire a realizzare il
+							nostro primo viaggio da marito e moglie.
 						</p>
 						<br />
 						<p className={classNames("text--strong")}>
 							Coordinate Bancarie:
 						</p>
 						<p>
-							<strong>Iban:</strong> 123456IT
+							<strong>IBAN:</strong> IT53Z0306961232100000000572
 							<br />
 							<strong>Intestatario:</strong> Lorenzo Panzera
 							<br />
-							<strong>Causale:</strong> regalo matrimonio
+							<strong>Causale:</strong> Regalo matrimonio
 						</p>
 					</Col>
 
@@ -197,7 +197,7 @@ const GiftForm = () => {
 						<TextField
 							fullWidth
 							required
-							label="Nome e cognome partecipanti"
+							label="Nome e cognome"
 							onChange={(e) => setNames(e.target.value)}
 						/>
 					</Col>

@@ -6,11 +6,10 @@ const Footer = () => {
 		<Container>
 			<Row>
 				<Col>
-					<p className={classNames("text--strong")}>
-						Grazie e a presto!
-					</p>
-					<p className={classNames("text--italic")}>
-						Clara e lorenzo
+					<p>
+						<strong>Grazie e a presto!</strong>
+						<br />
+						Clara & Lorenzo
 					</p>
 				</Col>
 			</Row>
@@ -20,7 +19,9 @@ const Footer = () => {
 					<p>
 						<strong>Email:</strong> panzoniwedding@gmail.com
 						<br />
-						<strong>Cell:</strong> +39 3388090798
+						<strong>Lorenzo:</strong> +39 3388090798
+						<br />
+						<strong>Clara:</strong> +39 3489896735
 					</p>
 				</Col>
 			</Row>

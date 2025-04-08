@@ -1,6 +1,6 @@
 import "@/designSystem/globals.scss";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lavishly_Yours } from "next/font/google";
+import { Geist, Lavishly_Yours, PT_Serif } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 const geistSans = Geist({
@@ -8,9 +8,10 @@ const geistSans = Geist({
 	subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
+const ptSerif = PT_Serif({
+	variable: "--font-pt-serif",
 	subsets: ["latin"],
+	weight: "400",
 });
 
 const cedarville = Lavishly_Yours({
@@ -38,7 +39,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${cedarville.variable}`}
+				className={`${geistSans.variable} ${ptSerif.variable} ${cedarville.variable}`}
 			>
 				<AppRouterCacheProvider>{children}</AppRouterCacheProvider>
 			</body>

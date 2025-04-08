@@ -25,7 +25,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/presentations/clara.jpg"}
+							src={"/presentations/clara2.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -77,7 +77,7 @@ const Presentations = () => {
 							alt="portait"
 							width={300}
 							height={300}
-							src={"/presentations/federica.jpg"}
+							src={"/presentations/federica2.jpg"}
 							layout="responsive"
 							style={{
 								minHeight: "100%",
@@ -156,8 +156,8 @@ const Presentations = () => {
 							}}
 						/>
 						<div className={classNames(styles.gradient)} />
-						<h3 className={classNames(styles.name, "text--h-sm")}>
-							Peanut Butter
+						<h3 className={classNames(styles.name, "text--h-md")}>
+							Peanutbutter
 						</h3>
 					</div>
 				</Col>
