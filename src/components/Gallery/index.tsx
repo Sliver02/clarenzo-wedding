@@ -25,7 +25,7 @@ const Gallery = () => {
 					<div className={classNames("imageContainer")}>
 						<Image
 							alt="castello"
-							src={"/castello.jpg"}
+							src={"/presentations/guests.jpg"}
 							width={1200}
 							height={800}
 							layout="responsive"
