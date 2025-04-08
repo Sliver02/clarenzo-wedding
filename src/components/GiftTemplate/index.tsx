@@ -14,7 +14,7 @@ const GiftTemplate: React.FC<Readonly<GiftTemplateProps>> = ({
 			<strong>Email:</strong> {email}
 		</p>
 		<p>
-			<strong>Gift value:</strong> {giftValue}
+			<strong>Somma regalata:</strong> {giftValue}
 		</p>
 		{message && (
 			<p>

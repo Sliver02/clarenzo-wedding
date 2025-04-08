@@ -1,4 +1,6 @@
 // import styles from "./index.module.scss";
+import { AlertResponse } from "@/common/globalInterfaces";
+import emailjs from "@emailjs/browser";
 import { CelebrationRounded } from "@mui/icons-material";
 import {
 	Alert,
@@ -10,18 +12,20 @@ import {
 } from "@mui/material";
 import classNames from "classnames";
 import { FormEvent, useState } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import ApplicationTemplate from "../ApplicationTemplate";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 import styles from "./styles.module.scss";
-import {
-	AlertResponse,
-	ApplicationTemplateProps,
-} from "@/common/globalInterfaces";
 
 export enum ResponseEnum {
 	YES = "YES",
 	NO = "NO",
 }
+
+const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE as string;
+const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE as string;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_KEY as string;
 
 const ApplicationForm = () => {
 	const [isPartecipating, setIsPartecipating] = useState(ResponseEnum.YES);
@@ -60,34 +64,45 @@ const ApplicationForm = () => {
 		setAllergies(value as string[]);
 	};
 
+	const htmlContent = renderToStaticMarkup(
+		<ApplicationTemplate
+			{...{
+				name,
+				email,
+				phone,
+				isPartecipating,
+				plusOne,
+				plusOneName,
+				sleep,
+				beds,
+				allergies,
+				otherAllergies,
+				notes,
+			}}
+		/>
+	);
+
 	const submitForm = async (e: FormEvent<HTMLFormElement>) => {
 		console.log("submit-form");
 		e.preventDefault();
 
 		try {
 			setLoading(true);
+			setAlert(null);
 
-			const res = await fetch("/api/send-application", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
+			const res = await emailjs.send(
+				serviceId,
+				templateId,
+				{
 					name,
 					email,
-					phone,
-					isPartecipating,
-					plusOne,
-					plusOneName,
-					sleep,
-					beds,
-					allergies,
-					otherAllergies,
-					notes,
-				} as ApplicationTemplateProps),
-			});
+                    title: "RSVP inviato da",
+					message_html: htmlContent,
+				},
+				publicKey
+			);
 
-			if (res.ok) {
+			if (res.text == "OK") {
 				console.log("Email inviata!");
 				setAlert({
 					severity: "success",

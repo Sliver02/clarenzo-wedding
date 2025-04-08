@@ -74,3 +74,6 @@ export interface AlertResponse {
 	severity: "success" | "warning" | "error";
 	text: string;
 }
+
+export const GoogleDriveLink =
+	"https://drive.google.com/drive/folders/1-8m3oodwqK_Ju_YOInMGGKMNYRylsbyd";

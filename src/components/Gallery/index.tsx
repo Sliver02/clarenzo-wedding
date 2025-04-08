@@ -1,7 +1,9 @@
-import classNames from "classnames";
-import { Col, Container, Row } from "../Grid";
-import Image from "next/image";
+import { GoogleDriveLink } from "@/common/globalInterfaces";
 import { Button } from "@mui/material";
+import classNames from "classnames";
+import Image from "next/image";
+import Link from "next/link";
+import { Col, Container, Row } from "../Grid";
 
 const Gallery = () => {
 	return (
@@ -39,9 +41,14 @@ const Gallery = () => {
 						Google drive dove potete caricare e vedere le foto di
 						tutti gli ospiti!
 					</p>
-					<Button variant="contained" style={{ marginTop: "1rem" }}>
-						Apri
-					</Button>
+					<Link href={GoogleDriveLink} target="_blank">
+						<Button
+							variant="contained"
+							style={{ marginTop: "1rem" }}
+						>
+							Apri
+						</Button>
+					</Link>
 				</Col>
 			</Row>
 			<div
@@ -70,6 +77,7 @@ const Gallery = () => {
 						Foto del fotografo ufficiale, potrete accederci qualche
 						giorno dopo la cerimonia!
 					</p>
+					{/* <Link href={GoogleDriveLink} target="_blank"> */}
 					<Button
 						disabled
 						variant="contained"
@@ -77,6 +85,7 @@ const Gallery = () => {
 					>
 						Apri
 					</Button>
+					{/* </Link> */}
 				</Col>
 			</Row>
 		</Container>

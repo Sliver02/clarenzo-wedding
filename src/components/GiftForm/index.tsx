@@ -1,11 +1,18 @@
+import { AlertResponse } from "@/common/globalInterfaces";
+import emailjs from "@emailjs/browser";
 import { FavoriteRounded } from "@mui/icons-material";
 import { Alert, Button, TextField } from "@mui/material";
 import classNames from "classnames";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import GiftTemplate from "../GiftTemplate";
 import { Col, Container, Row } from "../Grid";
 import styles from "./styles.module.scss";
-import { FormEvent, useState } from "react";
-import { AlertResponse, GiftTemplateProps } from "@/common/globalInterfaces";
+
+const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE as string;
+const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE as string;
+const publicKey = process.env.NEXT_PUBLIC_EMAILJS_KEY as string;
 
 const GiftForm = () => {
 	const [names, setNames] = useState("");
@@ -16,6 +23,17 @@ const GiftForm = () => {
 	const [loading, setLoading] = useState(false);
 	const [alert, setAlert] = useState<AlertResponse | null>(null);
 
+	const htmlContent = renderToStaticMarkup(
+		<GiftTemplate
+			{...{
+				names,
+				email,
+				giftValue,
+				message,
+			}}
+		/>
+	);
+
 	const submitForm = async (e: FormEvent<HTMLFormElement>) => {
 		console.log("submit-form");
 		e.preventDefault();
@@ -23,20 +41,19 @@ const GiftForm = () => {
 		try {
 			setLoading(true);
 
-			const res = await fetch("/api/send-gift", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					names,
+			const res = await emailjs.send(
+				serviceId,
+				templateId,
+				{
+					name: names,
 					email,
-					giftValue,
-					message,
-				} as GiftTemplateProps),
-			});
+					title: "Regalo inviato da",
+					message_html: htmlContent,
+				},
+				publicKey
+			);
 
-			if (res.ok) {
+			if (res.text == "OK") {
 				console.log("Email inviata!");
 				setAlert({
 					severity: "success",
