@@ -20,6 +20,7 @@ import styles from "./styles.module.scss";
 
 export enum ResponseEnum {
 	YES = "YES",
+	VAN = "YES_VAN",
 	NO = "NO",
 }
 
@@ -270,6 +271,22 @@ const ApplicationForm = () => {
 												/>
 											}
 											label="Si"
+										/>
+										<FormControlLabel
+											control={
+												<Checkbox
+													onChange={() =>
+														handleSleep(
+															ResponseEnum.VAN
+														)
+													}
+													checked={
+														sleep ==
+														ResponseEnum.VAN
+													}
+												/>
+											}
+											label="Si, in Van"
 										/>
 										<FormControlLabel
 											control={
