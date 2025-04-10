@@ -80,12 +80,12 @@ main {
 a {
 	cursor: pointer;
 	font-weight: 500;
-	color: var(--primary-active);
+	color: var(--accent-active);
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		color: var(--primary-active);
+		color: var(--accent-active);
 	}
 }
 

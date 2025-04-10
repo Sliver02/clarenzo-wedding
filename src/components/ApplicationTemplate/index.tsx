@@ -7,8 +7,6 @@ const ApplicationTemplate: React.FC<Readonly<ApplicationTemplateProps>> = ({
 	isPartecipating,
 	plusOne,
 	plusOneName,
-	sleep,
-	beds,
 	allergies,
 	otherAllergies,
 	notes,
@@ -39,16 +37,7 @@ const ApplicationTemplate: React.FC<Readonly<ApplicationTemplateProps>> = ({
 				</>
 			)}
 		</p>
-		<p>
-			<strong>Desiderano dormire qui:</strong> {sleep}
-			{sleep == "YES" && (
-				<>
-					<br />
-					<strong>Posti letto richiesti:</strong>
-					{beds}
-				</>
-			)}
-		</p>
+
 		<p>
 			<strong>Allergie:</strong> {allergies?.join(", ") || "Nessuna"}
 			{otherAllergies && (

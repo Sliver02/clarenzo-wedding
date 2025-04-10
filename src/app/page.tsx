@@ -92,6 +92,7 @@ export default function Home() {
 							id="audio"
 							ref={audioRef}
 							controls
+							autoPlay
 							style={{
 								position: "absolute",
 								transform: "translate(50%,0)",

@@ -17,6 +17,7 @@ import ApplicationTemplate from "../ApplicationTemplate";
 import { Col, Container, Row } from "../Grid";
 import MultiselectChips from "../MultiselectChips";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 export enum ResponseEnum {
 	YES = "YES",
@@ -32,8 +33,8 @@ const ApplicationForm = () => {
 	const [isPartecipating, setIsPartecipating] = useState(ResponseEnum.YES);
 	const [plusOne, setPlusOne] = useState(ResponseEnum.NO);
 	const [plusOneName, setPlusOneName] = useState("");
-	const [sleep, setSleep] = useState(ResponseEnum.NO);
-	const [beds, setBeds] = useState(1);
+	// const [sleep, setSleep] = useState(ResponseEnum.NO);
+	// const [beds, setBeds] = useState(1);
 	const [allergies, setAllergies] = useState<string[]>([]);
 	const [otherAllergies, setOtherAllergies] = useState("");
 	const [name, setName] = useState("");
@@ -50,12 +51,12 @@ const ApplicationForm = () => {
 
 	const handlePlusOne = (response: ResponseEnum) => {
 		setPlusOne(response);
-		setBeds(response == ResponseEnum.YES ? 2 : 1);
+		// setBeds(response == ResponseEnum.YES ? 2 : 1);
 	};
 
-	const handleSleep = (response: ResponseEnum) => {
-		setSleep(response);
-	};
+	// const handleSleep = (response: ResponseEnum) => {
+	// 	setSleep(response);
+	// };
 
 	const handleAllergies = (event: SelectChangeEvent<string[]>) => {
 		const {
@@ -74,8 +75,6 @@ const ApplicationForm = () => {
 				isPartecipating,
 				plusOne,
 				plusOneName,
-				sleep,
-				beds,
 				allergies,
 				otherAllergies,
 				notes,
@@ -249,7 +248,7 @@ const ApplicationForm = () => {
 								</Col>
 							)}
 						</Row>
-						<Row>
+						{/* <Row>
 							<Col xs={12}>
 								<div>
 									<p className={classNames("text--strong")}>
@@ -320,7 +319,7 @@ const ApplicationForm = () => {
 									/>
 								</Col>
 							)}
-						</Row>
+						</Row> */}
 						<Row>
 							<Col xs={12}>
 								<p className={classNames("text--strong")}>
@@ -380,6 +379,44 @@ const ApplicationForm = () => {
 						/>
 					</Col>
 				</Row>
+				{isPartecipating == ResponseEnum.YES && (
+					<Row>
+						<Col xs={12}>
+							<p className={classNames("text--strong")}>
+								Ti fermerai a dormire?
+							</p>
+							<p className={classNames("text--p-md")}>
+								Se hai bisogno di una stanza dove passare la
+								notte dopo la festa, la struttura di riferimento
+								è questa:
+							</p>
+							<p className={classNames("text--p-md")}>
+								<strong>
+									<Link
+										href="https://www.villamaternini.com/"
+										target="_blank"
+									>
+										Hotel Villa Maternini
+									</Link>
+								</strong>
+								<br />
+								Via Pier Antonio Mutti, 7, 31028 Vazzola TV{" "}
+								<br />
+								tel. 0438 442096 <br />
+							</p>
+							<p className={classNames("text--p-sm")}>
+								Questa struttura offre diverse opzioni fra cui
+								camere singole, matrimoniali, suite da 4/5/6
+								persone (con colazione inclusa), quindi avrete
+								la possibilità di organizzarvi a seconda delle
+								vostre esigenze. Qualora doveste prenotare,
+								ricordatevi di avvisare che siete ospiti del
+								nostro matrimonio, così verrete accomodati nello
+								stesso edificio.
+							</p>
+						</Col>
+					</Row>
+				)}
 				<Row>
 					<Col xs={12}>
 						<p className={classNames("text--strong")}>
