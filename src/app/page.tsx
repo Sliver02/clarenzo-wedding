@@ -70,7 +70,6 @@ export default function Home() {
 								borderRadius: "200px",
 							}}
 							href="#hero"
-							onClick={() => audioRef?.current?.play()}
 						/>
 					</motion.div>
 
@@ -114,7 +113,7 @@ export default function Home() {
 
 					<div className={classNames(styles.pageBody)}>
 						<section className={classNames(styles.section)}>
-							<Hero />
+							<Hero audioRef={audioRef} />
 						</section>
 						<section className={classNames(styles.section)}>
 							<Info />

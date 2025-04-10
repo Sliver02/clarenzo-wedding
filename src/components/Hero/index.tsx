@@ -1,12 +1,15 @@
-import { BaseProps } from "@/common/globalInterfaces";
 import { Container } from "@/components/Grid";
 import classNames from "classnames";
 import { motion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
-import { CSSProperties, useRef } from "react";
+import { CSSProperties, RefObject, useRef } from "react";
 import styles from "./styles.module.scss";
 
-const Hero = ({ className }: BaseProps) => {
+interface HeroProps {
+	audioRef: RefObject<HTMLAudioElement | null>;
+}
+
+const Hero = ({ audioRef }: HeroProps) => {
 	const ref = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -33,7 +36,7 @@ const Hero = ({ className }: BaseProps) => {
 	};
 
 	return (
-		<div id="hero" className={classNames(className, styles.hero)}>
+		<div id="hero" className={classNames(styles.hero)}>
 			<div ref={ref} className={classNames(styles.leafContainer)}>
 				<Image
 					alt="wedds"
@@ -79,6 +82,7 @@ const Hero = ({ className }: BaseProps) => {
 						y: characterY,
 						translateX: "-50%",
 					}}
+					onViewportEnter={() => audioRef.current?.play()}
 				>
 					<Image
 						alt="wedds"
