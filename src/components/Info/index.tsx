@@ -8,6 +8,7 @@ import {
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const Info = () => {
 	const position: { lat: number; lng: number } = {
@@ -69,9 +70,13 @@ const Info = () => {
 					<br />
 					<p className={classNames("text--p-md")}>
 						<strong>
-							Villa Castello Papadopoli Giol e Parco Giol
+							<Link
+								href="https://giolitalia.com/il-castello"
+								target="_blank"
+							>
+								Villa Castello Papadopoli Giol e Parco Giol
+							</Link>
 						</strong>
-						<br />
 						<br />
 						<strong>Piazza Papadopoli, 2</strong>
 						<br />
