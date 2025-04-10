@@ -33,7 +33,7 @@ const Hero = ({ className }: BaseProps) => {
 	};
 
 	return (
-		<div className={classNames(className, styles.hero)}>
+		<div id="hero" className={classNames(className, styles.hero)}>
 			<div ref={ref} className={classNames(styles.leafContainer)}>
 				<Image
 					alt="wedds"

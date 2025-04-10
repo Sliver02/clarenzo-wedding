@@ -14,7 +14,6 @@ import GiftForm from "@/components/GiftForm";
 import Presentations from "@/components/Presentations";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
-import ReactAudioPlayer from "react-audio-player";
 
 export default function Home() {
 	const theme = createTheme({
@@ -28,6 +27,7 @@ export default function Home() {
 	});
 
 	const ref = useRef(null);
+	const audioRef = useRef<HTMLAudioElement>(null);
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -58,6 +58,20 @@ export default function Home() {
 							height={500}
 							src={"./letterup.svg"}
 						/>
+
+						<a
+							style={{
+								width: "200px",
+								height: "200px",
+								position: "absolute",
+								transform: "translate(50%,0)",
+								right: "50%",
+								bottom: "0",
+								borderRadius: "200px",
+							}}
+							href="#hero"
+							onClick={() => audioRef?.current?.play()}
+						/>
 					</motion.div>
 
 					<motion.div
@@ -74,17 +88,20 @@ export default function Home() {
 							height={600}
 							src={"./letterdown.svg"}
 						/>
-						<ReactAudioPlayer
+						<audio
+							id="audio"
+							ref={audioRef}
+							controls
 							style={{
 								position: "absolute",
-								right: "0",
+								transform: "translate(50%,0)",
+								right: "50%",
 								bottom: "-30px",
 							}}
-							src="/music.mp3"
-							autoPlay
-							loop
-							controls
-						/>
+						>
+							<source id="audioSource" src="/music.mp3" />
+							Your browser does not support the audio format.
+						</audio>
 					</motion.div>
 
 					<motion.div
