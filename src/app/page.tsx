@@ -14,6 +14,7 @@ import GiftForm from "@/components/GiftForm";
 import Presentations from "@/components/Presentations";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
+import ReactAudioPlayer from "react-audio-player";
 
 export default function Home() {
 	const theme = createTheme({
@@ -72,6 +73,17 @@ export default function Home() {
 							width={1040}
 							height={600}
 							src={"./letterdown.svg"}
+						/>
+						<ReactAudioPlayer
+							style={{
+								position: "absolute",
+								right: "0",
+								bottom: "-30px",
+							}}
+							src="/music.mp3"
+							autoPlay
+							loop
+							controls
 						/>
 					</motion.div>
 
